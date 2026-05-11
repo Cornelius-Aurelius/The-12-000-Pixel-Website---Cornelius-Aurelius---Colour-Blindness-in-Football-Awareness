@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The 12,000 Pixel Website | Reveal the Hidden 12</title>
+  <meta name="description" content="The 12,000 Pixel Website by Cornelius Aurelius. A free founding supporter logo wall where reviewed business logos fill a colour-blind test circle and reveal the hidden number 12." />
+  <meta name="keywords" content="Cornelius Aurelius, 12000 pixel website, 12,000 Pixel Website, hidden 12, Colour Blindness in Football, free logo wall, founding supporters, sponsor wall" />
+  <meta name="author" content="Cornelius Aurelius" />
+  <meta name="theme-color" content="#090302" />
+  <meta property="og:title" content="The 12,000 Pixel Website | Reveal the Hidden 12" />
+  <meta property="og:description" content="One colour-blind test circle. One hidden number 12. Free founding business logos reveal it one logo at a time." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/colour-blindness-football-cover.jpg" />
+  <style>
+    :root {
+      --bg: #070201;
+      --ink: #fff5e8;
+      --muted: rgba(255,235,204,.76);
+      --cream: #fff2d8;
+      --gold: #f6b33b;
+      --gold2: #ff6a1a;
+      --green: #8fb84b;
+      --red: #e33b16;
+      --line: rgba(255,205,128,.26);
+      --panel: rgba(255,183,77,.095);
+      --shadow: 0 30px 110px rgba(0,0,0,.62);
+      --max: 1180px;
+      --radius: 28px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 50% 2%, rgba(255,106,26,.26), transparent 34rem),
+        radial-gradient(circle at 8% 16%, rgba(246,179,59,.12), transparent 26rem),
+        radial-gradient(circle at 92% 14%, rgba(255,106,26,.13), transparent 28rem),
+        linear-gradient(180deg, #120603 0%, #070201 42%, #020100 100%);
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    img { max-width: 100%; display: block; }
+    .skip-link { position: absolute; left: -999px; top: 12px; z-index: 999; background: var(--gold); color: #170604; padding: 10px 14px; border-radius: 10px; font-weight: 1000; }
+    .skip-link:focus { left: 12px; }
+
+    .pixel-top {
+      position: sticky;
+      top: 0;
+      z-index: 80;
+      background: linear-gradient(180deg, rgba(31,11,4,.97), rgba(9,3,1,.93));
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 14px 40px rgba(0,0,0,.35);
+      backdrop-filter: blur(14px);
+    }
+    .pixel-status {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+      min-height: 35px;
+      padding: 7px 12px;
+      background: #0b0301;
+      color: var(--cream);
+      font-size: 13px;
+      font-weight: 1000;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(255,205,128,.19);
+    }
+    .pixel-status b { color: var(--gold); }
+    .pixel-links {
+      width: min(var(--max), calc(100% - 24px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      align-items: center;
+      min-height: 51px;
+      padding: 8px 0;
+    }
+    .pixel-brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+    .brand-icon {
+      width: 38px; height: 38px; border-radius: 12px;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--gold2), var(--gold), #fff1a8);
+      color: #170604; font-weight: 1000; box-shadow: 0 12px 30px rgba(255,106,26,.25);
+    }
+    .pixel-brand strong { display: block; line-height: 1.05; letter-spacing: -.02em; }
+    .pixel-brand span { display: block; color: var(--muted); font-size: 12px; margin-top: 1px; }
+    .icon-nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; }
+    .icon-nav a {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 9px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 1000;
+      white-space: nowrap;
+      transition: .18s ease;
+    }
+    .icon-nav a:hover, .icon-nav .hot { color: #170604; background: var(--gold); }
+
+    .wrap { width: min(var(--max), calc(100% - 28px)); margin: 0 auto; }
+    .hero {
+      position: relative;
+      min-height: calc(100svh - 86px);
+      display: grid;
+      align-items: center;
+      padding: 34px 0 58px;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .hero::before {
+      content: "";
+      position: absolute; inset: 0; z-index: -3;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.82)),
+        linear-gradient(90deg, rgba(0,0,0,.84), rgba(0,0,0,.22), rgba(0,0,0,.84)),
+        url("assets/colour-blindness-football-cover.jpg") center 30% / cover no-repeat;
+      filter: blur(12px) saturate(1.08) brightness(.62);
+      transform: scale(1.08);
+    }
+    .hero::after {
+      content: "";
+      position: absolute; inset: 0; z-index: -2;
+      background:
+        radial-gradient(circle at 50% 48%, rgba(255,188,74,.22), transparent 30rem),
+        radial-gradient(circle at 50% 76%, rgba(0,0,0,.65), transparent 36rem),
+        linear-gradient(180deg, rgba(7,2,1,.15), rgba(7,2,1,.95));
+    }
+    .hero-focus { text-align: center; }
+    .kicker {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 8px 13px;
+      border: 1px solid rgba(246,179,59,.46);
+      border-radius: 999px;
+      background: rgba(255,106,26,.13);
+      color: var(--cream);
+      font-size: 13px;
+      font-weight: 1000;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 14px;
+    }
+    h1, h2, h3 { margin: 0; line-height: 1.04; letter-spacing: -.045em; }
+    h1 {
+      font-size: clamp(46px, 7.4vw, 112px);
+      text-transform: uppercase;
+      text-shadow: 0 12px 48px rgba(0,0,0,.65);
+    }
+    .gold { color: var(--gold); }
+    .hero-sub {
+      margin: 12px auto 18px;
+      color: rgba(255,242,216,.88);
+      max-width: 850px;
+      font-size: clamp(17px, 2vw, 23px);
+      font-weight: 800;
+    }
+
+    .hero-board-shell {
+      position: relative;
+      width: min(88svh, 92vw, 780px);
+      margin: 18px auto 0;
+      padding: clamp(7px, 1vw, 12px);
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(255,106,26,.78), rgba(246,179,59,.76), rgba(255,244,230,.18));
+      box-shadow: 0 0 0 1px rgba(255,205,128,.32), 0 38px 110px rgba(0,0,0,.68), 0 0 90px rgba(255,106,26,.24);
+    }
+    .test-board {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1px solid rgba(255,244,230,.22);
+      background:
+        radial-gradient(circle at 30% 26%, rgba(255,232,153,.12), transparent 24%),
+        radial-gradient(circle at 70% 70%, rgba(255,106,26,.10), transparent 25%),
+        #10250b;
+      box-shadow: inset 0 0 58px rgba(0,0,0,.45);
+      isolation: isolate;
+    }
+    .test-board::before {
+      content: "";
+      position: absolute; inset: 0; z-index: 5;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(255,244,230,.13), transparent 13%),
+        radial-gradient(circle at 82% 20%, rgba(255,179,59,.14), transparent 14%),
+        radial-gradient(circle at 50% 84%, rgba(0,0,0,.42), transparent 45%);
+      pointer-events: none;
+    }
+    .board-grid {
+      position: absolute; inset: 0; z-index: 2;
+      display: grid;
+      gap: 2px;
+      padding: clamp(9px, 1.4vw, 15px);
+    }
+    .pixel-dot {
+      position: relative;
+      border-radius: 50%;
+      min-width: 0; min-height: 0;
+      box-shadow: inset 0 0 6px rgba(255,255,255,.18), 0 1px 0 rgba(0,0,0,.24);
+      border: 1px solid rgba(0,0,0,.06);
+      transform: scale(var(--s, .88));
+    }
+    .pixel-dot.outside { visibility: hidden; }
+    .pixel-dot.number-hidden { opacity: .65; filter: saturate(.65) brightness(.8); }
+    .pixel-dot.number-hidden::after { content: ""; position: absolute; inset: 20%; border-radius: inherit; background: rgba(255,255,255,.07); }
+    .pixel-logo {
+      border-radius: 22%;
+      background: #fff;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      transform: scale(1.08);
+      box-shadow: 0 0 0 1px rgba(255,255,255,.5), 0 4px 12px rgba(0,0,0,.32), 0 0 16px rgba(255,191,64,.18);
+      transition: transform .18s ease, filter .18s ease;
+    }
+    .pixel-logo:hover { transform: scale(1.35); z-index: 20; filter: brightness(1.08); }
+    .pixel-logo img { width: 100%; height: 100%; object-fit: contain; padding: 2px; }
+    .initials { width: 100%; height: 100%; display: grid; place-items: center; color: #130502; background: linear-gradient(135deg, #fff, #ffd166); font-weight: 1000; font-size: 10px; }
+    .board-watermark {
+      position: absolute; inset: 0; z-index: 1;
+      display: grid; place-items: center;
+      color: rgba(255,244,230,.10);
+      font-size: clamp(210px, 39vw, 520px);
+      line-height: 1;
+      font-family: Impact, Arial Black, Arial, sans-serif;
+      font-weight: 1000;
+      letter-spacing: -.12em;
+      transform: translateX(-.035em);
+      pointer-events: none;
+      text-shadow: 0 0 34px rgba(255,179,59,.16);
+    }
+    .hero-board-shell .board-watermark { color: rgba(255,244,230,.145); }
+    .board-caption {
+      position: absolute; left: 50%; bottom: 6.5%; z-index: 6;
+      transform: translateX(-50%);
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,205,128,.32);
+      background: rgba(0,0,0,.54);
+      color: var(--cream);
+      font-weight: 1000;
+      font-size: 13px;
+      white-space: nowrap;
+      backdrop-filter: blur(10px);
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 11px; margin: 20px auto 0; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 48px;
+      padding: 12px 17px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.08);
+      color: var(--ink);
+      font-weight: 1000;
+      cursor: pointer;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+    }
+    .btn:hover { transform: translateY(-2px); background: rgba(255,255,255,.13); border-color: rgba(255,205,128,.44); }
+    .btn-primary { background: var(--gold); color: #170604; border-color: transparent; box-shadow: 0 16px 42px rgba(246,179,59,.24); }
+    .btn-primary:hover { background: #ffe18a; }
+    .btn-small { min-height: 39px; padding: 9px 12px; font-size: 13px; }
+
+    .hero-proof {
+      margin: 18px auto 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      max-width: 840px;
+    }
+    .proof-item { padding: 13px 12px; border: 1px solid rgba(255,205,128,.24); border-radius: 18px; background: rgba(0,0,0,.36); }
+    .proof-item strong { display: block; color: var(--gold); font-size: 28px; line-height: 1; }
+    .proof-item span { display: block; color: var(--muted); font-size: 12px; font-weight: 900; margin-top: 7px; }
+
+    .section { padding: 76px 0; }
+    .section-lead { margin: 16px 0 0; color: var(--muted); font-size: clamp(17px, 2vw, 21px); max-width: 870px; }
+    .panel { border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(180deg, rgba(255,183,77,.105), rgba(255,106,26,.044)); box-shadow: var(--shadow); overflow: hidden; }
+    .panel-inner { padding: clamp(22px, 4vw, 42px); }
+
+    .link-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 26px; }
+    .link-card { min-height: 210px; display: flex; flex-direction: column; gap: 12px; padding: 23px; border-radius: 24px; border: 1px solid var(--line); background: rgba(255,183,77,.075); }
+    .link-card .icon { font-size: 34px; }
+    .link-card h3 { font-size: 25px; }
+    .link-card p { color: var(--muted); margin: 0; flex: 1; }
+
+    .board-section { background: linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.34)); }
+    .board-layout { display: grid; grid-template-columns: minmax(0, .95fr) minmax(320px, .55fr); gap: 24px; align-items: start; margin-top: 28px; }
+    .board-panel { padding: 10px; border-radius: 34px; background: rgba(255,255,255,.045); border: 1px solid rgba(255,205,128,.18); }
+    .board-controls { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+    .progress-meter { height: 18px; border-radius: 999px; overflow: hidden; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.14); margin: 18px 0; }
+    .progress-fill { height: 100%; width: 0; background: linear-gradient(90deg, var(--gold2), var(--gold), #fff2a8); transition: width .75s ease; }
+    .progress-numbers { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+    .progress-box { padding: 14px; border-radius: 17px; background: rgba(0,0,0,.26); border: 1px solid rgba(255,205,128,.2); }
+    .progress-box strong { display: block; color: var(--gold); font-size: 25px; line-height: 1; }
+    .progress-box span { display: block; color: var(--muted); font-size: 12px; font-weight: 900; margin-top: 7px; }
+    .note-box { margin-top: 16px; padding: 15px; border-radius: 18px; border: 1px solid rgba(255,209,102,.28); background: rgba(255,209,102,.1); color: var(--cream); font-weight: 850; }
+    code { background: rgba(0,0,0,.34); border: 1px solid rgba(255,255,255,.12); border-radius: 8px; padding: 2px 6px; color: #ffe39b; }
+
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 26px; }
+    .step { padding: 22px; border-radius: 23px; border: 1px solid var(--line); background: rgba(255,255,255,.06); }
+    .step b { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 14px; background: var(--gold); color: #170604; margin-bottom: 13px; }
+    .step h3 { font-size: 21px; }
+    .step p { color: var(--muted); margin: 10px 0 0; }
+
+    .form-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: 24px; align-items: start; margin-top: 28px; }
+    .form-card { padding: clamp(22px, 3vw, 34px); }
+    .field { display: grid; gap: 8px; margin-bottom: 14px; }
+    .field label { color: var(--cream); font-weight: 1000; font-size: 13px; text-transform: uppercase; letter-spacing: .06em; }
+    .field input, .field textarea { width: 100%; color: var(--ink); background: rgba(0,0,0,.32); border: 1px solid rgba(255,205,128,.28); border-radius: 16px; padding: 13px 14px; outline: none; }
+    .field input:focus, .field textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(246,179,59,.13); }
+    textarea { min-height: 118px; resize: vertical; }
+    .upload-preview { display: grid; grid-template-columns: 98px 1fr; gap: 15px; align-items: center; padding: 14px; border: 1px dashed rgba(255,205,128,.36); border-radius: 20px; background: rgba(0,0,0,.24); margin: 15px 0; }
+    .preview-logo { width: 98px; height: 98px; border-radius: 20px; background: #fff; color: #170604; display: grid; place-items: center; text-align: center; font-weight: 1000; font-size: 13px; overflow: hidden; }
+    .preview-logo img { width: 100%; height: 100%; object-fit: contain; padding: 8px; }
+    .note { color: var(--muted); font-size: 13px; margin: 10px 0 0; }
+
+    .sponsor-list { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-top: 24px; }
+    .sponsor-chip { min-height: 116px; display: grid; gap: 8px; align-content: center; justify-items: center; text-align: center; padding: 14px; border-radius: 18px; border: 1px solid rgba(255,205,128,.22); background: rgba(255,255,255,.06); }
+    .sponsor-chip img { width: 52px; height: 52px; object-fit: contain; background: #fff; border-radius: 12px; padding: 5px; }
+    .sponsor-chip strong { font-size: 13px; }
+    .sponsor-chip span { color: var(--muted); font-size: 12px; }
+
+    footer { padding: 54px 0; border-top: 1px solid var(--line); background: #040100; text-align: center; }
+    .footer-domain { display: inline-flex; align-items: center; justify-content: center; padding: 17px 22px; border-radius: 999px; background: var(--gold); color: #170604; font-size: clamp(22px, 3vw, 38px); font-weight: 1000; letter-spacing: -.03em; box-shadow: 0 18px 54px rgba(246,179,59,.2); }
+    footer p { color: var(--muted); margin: 14px auto 0; max-width: 700px; }
+    .toast { position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%) translateY(80px); z-index: 200; padding: 12px 16px; border-radius: 999px; background: var(--gold); color: #160603; font-weight: 1000; opacity: 0; pointer-events: none; transition: .25s ease; box-shadow: 0 20px 50px rgba(0,0,0,.34); }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    @media (max-width: 1040px) {
+      .pixel-links, .board-layout, .form-grid { grid-template-columns: 1fr; }
+      .icon-nav { justify-content: flex-start; }
+      .link-row, .steps { grid-template-columns: repeat(2, 1fr); }
+      .sponsor-list { grid-template-columns: repeat(3, 1fr); }
+      .hero-board-shell { width: min(92vw, 720px); }
+    }
+    @media (max-width: 640px) {
+      .pixel-status { font-size: 11px; gap: 8px; }
+      .icon-nav a { font-size: 12px; padding: 7px 8px; }
+      .hero { padding: 26px 0 46px; }
+      .hero-proof, .progress-numbers, .link-row, .steps, .sponsor-list { grid-template-columns: 1fr; }
+      .board-caption { bottom: 4.5%; font-size: 11px; }
+      .upload-preview { grid-template-columns: 1fr; }
+      .hero-board-shell { width: min(96vw, 520px); }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="pixel-top">
+    <div class="pixel-status">
+      <span>The 12,000 Pixel Website™</span>
+      <span><b>12,000</b> awareness pixels</span>
+      <span><b>Free</b> founding logo spaces</span>
+      <span><b>1,000</b> business goal</span>
+    </div>
+    <div class="pixel-links">
+      <a class="pixel-brand" href="#top" aria-label="The 12000 Pixel Website home">
+        <span class="brand-icon">12</span>
+        <span><strong>The 12,000 Pixel Website</strong><span>Colour-blind test logo wall</span></span>
+      </a>
+      <nav class="icon-nav" aria-label="Simple page links">
+        <a href="#top">🏠 Home</a>
+        <a href="#upload" class="hot">🆓 Free Logo</a>
+        <a href="#board">👁 The 12</a>
+        <a href="https://cornelius-aurelius.github.io/colour-blindness-in-football-project/#mission">⚽ Project</a>
+        <a href="https://cornelius-aurelius.github.io/Sponsor-the-Hidden-Player/">🤝 Sponsor</a>
+        <a href="#supporters">🏆 Supporters</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero-focus">
+        <div class="kicker">👁 Main focus: the number 12 inside the colour-blind circle</div>
+        <h1>The hidden <span class="gold">12</span></h1>
+        <p class="hero-sub">The colour-blind test circle is the website. Every reviewed business logo fills part of the number 12 until the hidden becomes visible.</p>
+
+        <div class="hero-board-shell" aria-label="Main colour-blind test circle revealing the number 12">
+          <div class="test-board" data-board="hero"></div>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#upload">🆓 Claim a free logo space</a>
+          <a class="btn" href="https://cornelius-aurelius.github.io/Sponsor-the-Hidden-Player/">🤝 Sponsor the project</a>
+          <a class="btn" href="https://cornelius-aurelius.github.io/colour-blindness-in-football-project/#mission">⚽ Colour Blindness in Football Project</a>
+          <button class="btn" type="button" data-set-demo="0">Hide the 12</button>
+          <button class="btn" type="button" data-set-demo="1">Show complete 12</button>
+        </div>
+
+        <div class="hero-proof" aria-label="Project stats">
+          <div class="proof-item"><strong>12</strong><span>The number revealed</span></div>
+          <div class="proof-item"><strong>12,000</strong><span>Awareness pixels</span></div>
+          <div class="proof-item"><strong>1,000</strong><span>Free logo spaces goal</span></div>
+          <div class="proof-item"><strong>Free</strong><span>Social proof first</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="links">
+      <div class="wrap">
+        <div class="kicker">🔗 Simple links</div>
+        <h2>Free logo now. Sponsor the mission later.</h2>
+        <p class="section-lead">The wall builds visible public support first. Businesses can join for free. Larger sponsors can later fund books, games, club resources and awareness.</p>
+        <div class="link-row">
+          <article class="link-card">
+            <div class="icon">🆓</div>
+            <h3>Free Logo Space</h3>
+            <p>Businesses can submit a logo and link for free. Each suitable logo becomes part of the hidden 12.</p>
+            <a class="btn btn-primary" href="#upload">Claim free logo</a>
+          </article>
+          <article class="link-card">
+            <div class="icon">🤝</div>
+            <h3>Sponsor</h3>
+            <p>Use the social proof wall to attract bigger paid sponsors for the Colour Blindness in Football mission.</p>
+            <a class="btn btn-primary" href="https://cornelius-aurelius.github.io/Sponsor-the-Hidden-Player/">Go to sponsor page</a>
+          </article>
+          <article class="link-card">
+            <div class="icon">⚽</div>
+            <h3>Project Mission</h3>
+            <p>Send visitors to the Colour Blindness in Football project so they understand the cause behind the wall.</p>
+            <a class="btn btn-primary" href="https://cornelius-aurelius.github.io/colour-blindness-in-football-project/#mission">View mission</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section board-section" id="board">
+      <div class="wrap">
+        <div class="kicker">👁 Reveal board</div>
+        <h2>The number 12 is the advertising area.</h2>
+        <p class="section-lead">Logos do not sit around the idea. Logos sit inside the number. That makes the message instantly clear: supporters help reveal what was hidden.</p>
+        <div class="board-layout">
+          <div>
+            <div class="board-panel">
+              <div class="test-board" data-board="main" aria-label="The 12,000 Pixel Website supporter reveal board"></div>
+            </div>
+            <div class="board-controls" aria-label="Preview controls">
+              <button class="btn btn-small" type="button" data-set-demo="0">Hidden start</button>
+              <button class="btn btn-small" type="button" data-set-demo="0.35">Partly revealed</button>
+              <button class="btn btn-small btn-primary" type="button" data-set-demo="1">Complete 12</button>
+            </div>
+          </div>
+          <aside class="panel">
+            <div class="panel-inner">
+              <h3>Current reveal progress</h3>
+              <p class="section-lead" style="font-size:16px; margin-top:10px;">This version opens as a complete concept preview so visitors instantly understand the finished wall. When you go live, add reviewed supporters to the <code>SUPPORTERS</code> list.</p>
+              <div class="progress-meter" aria-hidden="true"><div class="progress-fill" id="progress-fill"></div></div>
+              <div class="progress-numbers">
+                <div class="progress-box"><strong id="pixels-sold">0</strong><span>pixels revealed</span></div>
+                <div class="progress-box"><strong id="pixels-left">12,000</strong><span>pixels remaining</span></div>
+                <div class="progress-box"><strong id="sponsor-count">0</strong><span>logo spaces goal</span></div>
+              </div>
+              <div class="note-box"><strong>Review wording:</strong> Every submission is reviewed before it appears on the board. Suitable logos are added manually, keeping the wall safe and aligned with the project.</div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="wrap">
+        <div class="kicker">✅ How it works</div>
+        <h2>Simple, free and controlled.</h2>
+        <p class="section-lead">This keeps the site safe while still making it easy for businesses to join the proof wall.</p>
+        <div class="steps">
+          <article class="step"><b>1</b><h3>Submit</h3><p>A business sends its logo, link and contact details for free.</p></article>
+          <article class="step"><b>2</b><h3>Review</h3><p>Every submission is checked before it appears on the website.</p></article>
+          <article class="step"><b>3</b><h3>Add</h3><p>Suitable logos are added inside the number 12 area of the circle.</p></article>
+          <article class="step"><b>4</b><h3>Reveal</h3><p>The more logos added, the clearer the hidden 12 becomes.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="upload">
+      <div class="wrap">
+        <div class="kicker">🆓 Free founding logo space</div>
+        <h2>Business logo + link submission.</h2>
+        <p class="section-lead">On GitHub Pages this form previews the logo and creates an email. The logo is not published automatically. You review the supporter first, then add suitable logos to the board.</p>
+        <div class="form-grid">
+          <form class="panel form-card" id="sponsor-form">
+            <div class="field"><label for="business-name">Business name</label><input id="business-name" name="business-name" placeholder="Example: Your Business" required /></div>
+            <div class="field"><label for="business-link">Business website link</label><input id="business-link" name="business-link" type="url" placeholder="https://example.com" required /></div>
+            <div class="field"><label for="contact-email">Contact email</label><input id="contact-email" name="contact-email" type="email" placeholder="you@example.com" required /></div>
+            <div class="field"><label for="supporter-type">Supporter type</label><input id="supporter-type" name="supporter-type" value="Free founding logo space" /></div>
+            <div class="field"><label for="logo-upload">Upload logo preview</label><input id="logo-upload" name="logo-upload" type="file" accept="image/*" /></div>
+            <div class="field"><label for="message">Message</label><textarea id="message" name="message" placeholder="Tell us why you support the project, and confirm where your logo should link."></textarea></div>
+            <div class="hero-actions" style="justify-content:flex-start; margin-top: 10px;">
+              <button class="btn btn-primary" type="button" id="preview-on-board">Preview on the 12</button>
+              <button class="btn" type="submit">Create free logo email</button>
+            </div>
+            <p class="note"><strong>Review note:</strong> All submissions are reviewed before being added. This helps keep the supporter wall safe, relevant and aligned with the Colour Blindness in Football project.</p>
+            <p class="note">Tip: mailto forms cannot attach the uploaded logo automatically. Ask businesses to attach their logo in the email, or add a form backend later.</p>
+          </form>
+          <aside class="panel form-card">
+            <h3>Your logo preview</h3>
+            <div class="upload-preview">
+              <div class="preview-logo" id="logo-preview">LOGO<br>PREVIEW</div>
+              <div>
+                <strong id="preview-name">Your Business</strong>
+                <p class="note" id="preview-link">https://example.com</p>
+                <p class="note">If suitable, this becomes a clickable founding-supporter logo inside the number 12.</p>
+              </div>
+            </div>
+            <div class="note-box"><strong>To make a supporter permanent:</strong><br>Upload their logo into <code>assets/</code>, then add their name, link, logo path and pixel amount into the <code>SUPPORTERS</code> array near the bottom of <code>index.html</code>.</div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="supporters">
+      <div class="wrap">
+        <div class="kicker">🏆 Founding supporters</div>
+        <h2>Every free logo helps make the hidden visible.</h2>
+        <p class="section-lead">Replace the placeholder names with real reviewed founding supporters as the wall grows.</p>
+        <div class="sponsor-list" id="sponsor-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="wrap">
+      <a class="footer-domain" href="https://corneliusaurelius.com/">corneliusaurelius.com</a>
+      <p>© <span id="year"></span> Cornelius Aurelius. The hidden becomes visible when people decide to see it.</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Done</div>
+
+  <script>
+    /**********************************************************************
+     * THE 12,000 PIXEL WEBSITE
+     * Static GitHub Pages version by Cornelius Aurelius.
+     *
+     * LIVE SETUP:
+     * 1) Change OWNER_EMAIL.
+     * 2) Put reviewed/suitable logo files in /assets/.
+     * 3) Add reviewed free founding supporters to SUPPORTERS below.
+     * 4) Set DEMO_MODE to false when you want only real supporters shown.
+     **********************************************************************/
+
+    const OWNER_EMAIL = "CHANGE-THIS-EMAIL@example.com";
+    const TOTAL_PIXELS = 12000;
+    const GOAL_LOGOS = 1000;
+    const PIXELS_PER_LOGO = 12;
+    const DEMO_MODE = true;
+    let demoReveal = 1;
+
+    const SUPPORTERS = [
+      // Example real supporter:
+      // { name: "Example Business", url: "https://example.com", logo: "assets/example-logo.png", pixels: 12 }
+    ];
+
+    const demoNames = [
+      "Vision 12", "Local Club", "Pitch Ready", "Clear Play", "Kit Check", "Grassroots", "Eye Health", "Football Lab",
+      "Hidden Player", "Match Day", "Sponsor 12", "Bright Future", "Team First", "Youth Football", "Coach Hub", "Parent Power",
+      "Seen FC", "Colour Safe", "The Reveal", "Number Twelve", "Community", "Opportunity", "Football Care", "Awareness",
+      "Junior Game", "Focus Flow", "Decision Lab", "Sports Vision", "Better Cues", "Pass Clear", "Club Partner", "Open Goal",
+      "Early Test", "Player Path", "No Guessing", "Fast Choice", "Signal Safe", "Field View", "Next Child", "Visible Game",
+      "Clear Kit", "Game IQ", "Vision Club", "Fast Pass", "True Colours", "Support Wall", "Football Eyes", "Inclusion Hub",
+      "Parents United", "Coach Ready", "Club Shield", "Hidden No More", "Awareness FC", "Project 12", "See The Game", "Fair Chance"
+    ];
+
+    let uploadedLogoData = "";
+    let temporarySponsor = null;
+
+    const colours = ["#597d2c", "#7ea33a", "#a5b943", "#d3b739", "#e59a25", "#c95518", "#a93416", "#3f6c32", "#245a3b", "#b98d2a", "#f0c34e"];
+
+    function seeded(n) {
+      const x = Math.sin(n * 999.1337) * 10000;
+      return x - Math.floor(x);
+    }
+
+    function formatNumber(n) {
+      return Math.round(n).toLocaleString("en-GB");
+    }
+
+    function initials(name) {
+      return (name || "12").split(/\s+/).filter(Boolean).slice(0,2).map(w => w[0]).join("").toUpperCase();
+    }
+
+    function makeDemoLogo(name, index) {
+      const hue = Math.round(28 + seeded(index + 42) * 318);
+      const bg1 = `hsl(${hue} 78% 52%)`;
+      const bg2 = `hsl(${(hue + 38) % 360} 82% 42%)`;
+      const text = initials(name);
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="${bg1}"/><stop offset="1" stop-color="${bg2}"/></linearGradient></defs><rect width="120" height="120" rx="22" fill="url(#g)"/><circle cx="60" cy="42" r="19" fill="rgba(255,255,255,.22)"/><text x="60" y="75" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="900" fill="white">${text}</text></svg>`;
+      return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
+    }
+
+    function getSponsors() {
+      const live = [...SUPPORTERS];
+      if (temporarySponsor) live.unshift(temporarySponsor);
+      if (!DEMO_MODE) return live;
+      const demo = demoNames.map((name, i) => ({ name, url: "#upload", logo: makeDemoLogo(name, i), pixels: PIXELS_PER_LOGO }));
+      return [...live, ...demo];
+    }
+
+    function getProgress(sponsors) {
+      if (DEMO_MODE) return demoReveal;
+      const revealed = sponsors.reduce((sum, s) => sum + (Number(s.pixels) || PIXELS_PER_LOGO), 0);
+      return Math.max(0, Math.min(1, revealed / TOTAL_PIXELS));
+    }
+
+    function createMask(cols, rows) {
+      const canvas = document.createElement("canvas");
+      canvas.width = cols;
+      canvas.height = rows;
+      const ctx = canvas.getContext("2d");
+      ctx.clearRect(0, 0, cols, rows);
+      ctx.fillStyle = "#fff";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      let size = rows * .92;
+      do {
+        ctx.font = `900 ${size}px Arial Black, Impact, sans-serif`;
+        size -= 1;
+      } while (ctx.measureText("12").width > cols * .83 && size > 10);
+      ctx.fillText("12", cols * .51, rows * .55);
+      return ctx.getImageData(0, 0, cols, rows).data;
+    }
+
+    function isInCircle(x, y, cols, rows) {
+      const nx = ((x + .5) / cols - .5) / .5;
+      const ny = ((y + .5) / rows - .5) / .5;
+      return (nx * nx + ny * ny) <= .99;
+    }
+
+    function renderBoard(board) {
+      const isHero = board.dataset.board === "hero";
+      const cols = isHero ? 66 : 60;
+      const rows = isHero ? 66 : 60;
+      const sponsors = getSponsors();
+      const progress = getProgress(sponsors);
+      const mask = createMask(cols, rows);
+      const numberCells = [];
+
+      for (let y = 0; y < rows; y++) {
+        for (let x = 0; x < cols; x++) {
+          const idx = (y * cols + x) * 4 + 3;
+          if (isInCircle(x, y, cols, rows) && mask[idx] > 20) numberCells.push(y * cols + x);
+        }
+      }
+
+      const revealCount = Math.round(numberCells.length * progress);
+      const revealMap = new Map();
+      numberCells.forEach((cellIndex, revealIndex) => revealMap.set(cellIndex, revealIndex));
+
+      board.innerHTML = `<div class="board-watermark">12</div><div class="board-grid" style="grid-template-columns: repeat(${cols}, 1fr); grid-template-rows: repeat(${rows}, 1fr);"></div><div class="board-caption">${DEMO_MODE ? "Concept preview" : "Live supporter board"} • ${Math.round(progress * 100)}% revealed</div>`;
+      const grid = board.querySelector(".board-grid");
+      const sponsorPool = sponsors.length ? sponsors : [{ name: "Your Logo", url: "#upload", logo: "", pixels: PIXELS_PER_LOGO }];
+
+      for (let y = 0; y < rows; y++) {
+        for (let x = 0; x < cols; x++) {
+          const cell = y * cols + x;
+          const inside = isInCircle(x, y, cols, rows);
+          const revealIndex = revealMap.get(cell);
+          const isNumber = revealIndex !== undefined;
+          const r = seeded(cell + 7);
+          const dot = document.createElement(isNumber && revealIndex < revealCount ? "a" : "div");
+
+          if (!inside) {
+            dot.className = "pixel-dot outside";
+            grid.appendChild(dot);
+            continue;
+          }
+
+          if (isNumber && revealIndex < revealCount) {
+            const sponsor = sponsorPool[revealIndex % sponsorPool.length];
+            dot.className = "pixel-dot pixel-logo";
+            dot.href = sponsor.url || "#";
+            dot.target = sponsor.url && sponsor.url !== "#upload" && sponsor.url !== "#" ? "_blank" : "";
+            dot.rel = "noopener";
+            dot.title = `${sponsor.name} — ${sponsor.pixels || PIXELS_PER_LOGO} awareness pixels`;
+            if (sponsor.logo) {
+              const img = document.createElement("img");
+              img.src = sponsor.logo;
+              img.alt = sponsor.name;
+              dot.appendChild(img);
+            } else {
+              const span = document.createElement("span");
+              span.className = "initials";
+              span.textContent = initials(sponsor.name);
+              dot.appendChild(span);
+            }
+          } else {
+            dot.className = "pixel-dot" + (isNumber ? " number-hidden" : "");
+            const palette = isNumber ? ["#7c772f", "#8c7b2e", "#9b7727", "#7d8f36", "#9a7225"] : colours;
+            dot.style.background = palette[Math.floor(r * palette.length)];
+            dot.style.setProperty("--s", (0.62 + seeded(cell + 101) * 0.52).toFixed(2));
+          }
+          grid.appendChild(dot);
+        }
+      }
+    }
+
+    function updateStats() {
+      const sponsors = getSponsors();
+      const progress = getProgress(sponsors);
+      const revealed = Math.round(progress * TOTAL_PIXELS);
+      const pixelsSold = document.getElementById("pixels-sold");
+      const pixelsLeft = document.getElementById("pixels-left");
+      const sponsorCount = document.getElementById("sponsor-count");
+      const progressFill = document.getElementById("progress-fill");
+      if (pixelsSold) pixelsSold.textContent = formatNumber(revealed);
+      if (pixelsLeft) pixelsLeft.textContent = formatNumber(TOTAL_PIXELS - revealed);
+      if (sponsorCount) sponsorCount.textContent = DEMO_MODE ? formatNumber(GOAL_LOGOS) : formatNumber(sponsors.length);
+      if (progressFill) progressFill.style.width = `${Math.round(progress * 100)}%`;
+    }
+
+    function renderSponsorsList() {
+      const list = document.getElementById("sponsor-list");
+      if (!list) return;
+      const sponsors = getSponsors().slice(0, 24);
+      list.innerHTML = "";
+      sponsors.forEach((s, i) => {
+        const card = document.createElement("a");
+        card.className = "sponsor-chip";
+        card.href = s.url || "#upload";
+        card.title = s.name;
+        if (s.url && s.url !== "#" && s.url !== "#upload") {
+          card.target = "_blank";
+          card.rel = "noopener";
+        }
+        const img = document.createElement("img");
+        img.src = s.logo || makeDemoLogo(s.name, i);
+        img.alt = s.name;
+        const strong = document.createElement("strong");
+        strong.textContent = s.name;
+        const span = document.createElement("span");
+        span.textContent = `${s.pixels || PIXELS_PER_LOGO} pixels`;
+        card.append(img, strong, span);
+        list.appendChild(card);
+      });
+    }
+
+    function renderAll() {
+      document.querySelectorAll("[data-board]").forEach(renderBoard);
+      updateStats();
+      renderSponsorsList();
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.classList.add("show");
+      window.setTimeout(() => toast.classList.remove("show"), 2200);
+    }
+
+    document.querySelectorAll("[data-set-demo]").forEach(button => {
+      button.addEventListener("click", () => {
+        demoReveal = Number(button.dataset.setDemo);
+        renderAll();
+        showToast(demoReveal === 1 ? "Complete 12 preview" : demoReveal === 0 ? "Hidden start preview" : "Partly revealed preview");
+      });
+    });
+
+    const logoInput = document.getElementById("logo-upload");
+    const logoPreview = document.getElementById("logo-preview");
+    const businessName = document.getElementById("business-name");
+    const businessLink = document.getElementById("business-link");
+    const previewName = document.getElementById("preview-name");
+    const previewLink = document.getElementById("preview-link");
+
+    function syncPreviewText() {
+      previewName.textContent = businessName.value || "Your Business";
+      previewLink.textContent = businessLink.value || "https://example.com";
+    }
+    businessName.addEventListener("input", syncPreviewText);
+    businessLink.addEventListener("input", syncPreviewText);
+
+    logoInput.addEventListener("change", () => {
+      const file = logoInput.files && logoInput.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = e => {
+        uploadedLogoData = e.target.result;
+        logoPreview.innerHTML = `<img src="${uploadedLogoData}" alt="Uploaded logo preview">`;
+        showToast("Logo preview loaded");
+      };
+      reader.readAsDataURL(file);
+    });
+
+    document.getElementById("preview-on-board").addEventListener("click", () => {
+      temporarySponsor = {
+        name: businessName.value || "Your Business",
+        url: businessLink.value || "#upload",
+        logo: uploadedLogoData || makeDemoLogo(businessName.value || "Your Business", 999),
+        pixels: PIXELS_PER_LOGO
+      };
+      demoReveal = Math.max(demoReveal, .45);
+      renderAll();
+      showToast("Preview added to the 12");
+      document.getElementById("board").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    document.getElementById("sponsor-form").addEventListener("submit", event => {
+      event.preventDefault();
+      const subject = encodeURIComponent("Free founding logo submission — The 12,000 Pixel Website");
+      const body = encodeURIComponent(`Hi Cornelius,\n\nI would like to claim a free founding logo space on The 12,000 Pixel Website and help reveal the hidden 12.\n\nBusiness name: ${businessName.value}\nBusiness link: ${businessLink.value}\nContact email: ${document.getElementById("contact-email").value}\nSupporter type: ${document.getElementById("supporter-type").value}\n\nMessage:\n${document.getElementById("message").value}\n\nI understand submissions are reviewed before being added, to keep the wall suitable for the Colour Blindness in Football project.\n\nI will attach my logo to this email.\n\nThank you.`);
+      window.location.href = `mailto:${OWNER_EMAIL}?subject=${subject}&body=${body}`;
+      showToast("Free logo request email created");
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+    renderAll();
+  </script>
+</body>
+</html>
