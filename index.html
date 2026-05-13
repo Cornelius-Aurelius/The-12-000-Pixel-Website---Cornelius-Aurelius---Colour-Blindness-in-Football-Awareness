@@ -407,7 +407,7 @@
 
         <div class="hero-copy">
           <h1>The hidden <span class="gold">12</span></h1>
-          <p class="hero-sub">The colour-blind test circle is the website. Every reviewed business logo fills part of the number 12 until the hidden becomes visible.</p>
+          <p class="hero-sub">Add your business logo for free. Every approved logo becomes part of a colour-blind test circle, helping reveal the hidden 12 and support the Colour Blindness in Football project.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#upload">🆓 Claim a free logo space</a>
             <a class="btn" href="https://cornelius-aurelius.github.io/Sponsor-the-Hidden-Player/">🤝 Sponsor the project</a>
@@ -420,11 +420,16 @@
     <section class="section" id="upload">
       <div class="wrap">
         <div class="kicker">🆓 Free founding logo space</div>
-        <h2>Business logo + link</h2>
-        <p class="section-lead">Submit a business logo for free. Every submission is reviewed before it appears on the board. Suitable logos are added inside the number 12.</p>
+        <h2>Claim your free logo space</h2>
+        <p class="section-lead">Submit your business name, link and logo. Approved businesses are added to the hidden number 12 automatically after review.</p>
 
         <div class="form-grid">
           <form class="panel form-card" id="sponsor-form">
+            <div style="position:absolute; left:-9999px;" aria-hidden="true">
+              <label for="homepage">Leave this blank</label>
+              <input id="homepage" name="homepage" autocomplete="off" tabindex="-1" />
+            </div>
+
             <div class="field">
               <label for="business-name">Business name</label>
               <input id="business-name" name="business-name" placeholder="Example: Your Business" required />
@@ -438,11 +443,11 @@
               <input id="contact-email" name="contact-email" type="email" placeholder="you@example.com" required />
             </div>
             <div class="field">
-              <label for="locked-subject">Email subject locked</label>
+              <label for="locked-subject">Submission type</label>
               <input id="locked-subject" value="THE 12000 PIXEL SITE - LOGO + LINK" readonly />
             </div>
             <div class="field">
-              <label for="logo-upload">Upload logo preview</label>
+              <label for="logo-upload">Upload logo</label>
               <input id="logo-upload" name="logo-upload" type="file" accept=".png,.jpg,.jpeg,.webp,.svg,image/png,image/jpeg,image/webp,image/svg+xml" required />
             </div>
 
@@ -450,7 +455,7 @@
               <div class="rule">✅ <span><strong>Best logo:</strong> square PNG or SVG, clear on a white background.</span></div>
               <div class="rule">✅ <span><strong>Accepted:</strong> PNG, JPG, WEBP or SVG.</span></div>
               <div class="rule">✅ <span><strong>Maximum file size:</strong> 5MB.</span></div>
-              <div class="rule">⚠️ <span><strong>Important:</strong> the page checks the logo preview, but email cannot attach it automatically. Attach the same logo file before sending.</span></div>
+              <div class="rule">✅ <span><strong>Free:</strong> no payment required. Approved businesses are added after review.</span></div>
             </div>
 
             <div class="field">
@@ -460,12 +465,12 @@
 
             <div class="hero-actions" style="justify-content:flex-start; margin-top: 10px;">
               <button class="btn btn-primary" type="button" id="preview-on-board">Preview in the 12</button>
-              <button class="btn" type="submit">Create email</button>
-              <button class="btn" type="button" id="gmail-compose">Open Gmail</button>
+              <button class="btn btn-primary" type="submit">Submit for review</button>
+              <button class="btn" type="button" id="gmail-compose">Open Gmail backup</button>
             </div>
 
             <div class="email-help note-box" id="email-help">
-              If the email app did not open, use the <strong>Open Gmail</strong> button. Before sending, attach the exact logo file you previewed on this page.
+              Submitted businesses are saved for review. Once approved in the Google Sheet, the logo will appear on the hidden 12 automatically.
             </div>
           </form>
 
@@ -483,8 +488,8 @@
               <div class="status-item warn">⚠️ Upload a logo to check format, size and preview.</div>
             </div>
             <div class="note-box">
-              <strong>To publish the supporter:</strong><br />
-              Upload their logo into <code>assets/</code>, then add their name, link and logo path into the <code>SUPPORTERS</code> array near the bottom of <code>index.html</code>.
+              <strong>New automation:</strong><br />
+              Submissions now go to your Google Sheet and Drive. Change <code>approved</code> from <code>NO</code> to <code>YES</code> to publish a supporter.
             </div>
             <div class="mini-board">
               <div class="test-board" data-board="mini" aria-label="Mini preview of the number 12 logo wall"></div>
@@ -498,7 +503,7 @@
       <div class="wrap">
         <div class="kicker">🏆 Founding supporters</div>
         <h2>Every free logo helps reveal the 12.</h2>
-        <p class="section-lead">This starts as a social proof wall. Replace the demo names with real reviewed founding supporters as the wall grows.</p>
+        <p class="section-lead">Approved founding supporters appear here automatically from the connected Google Sheet.</p>
         <div class="sponsor-list" id="sponsor-list"></div>
       </div>
     </section>
@@ -518,18 +523,20 @@
      * THE 12,000 PIXEL WEBSITE
      * Static GitHub Pages version by Cornelius Aurelius.
      *
-     * EMAIL SETUP ALREADY SET:
-     * To: corneliusaureliush@gmail.com
-     * Subject: THE 12000 PIXEL SITE - LOGO + LINK
+     * NEW AUTOMATION:
+     * - Submissions post to Google Apps Script.
+     * - Google Apps Script saves details to Google Sheets and logos to Drive.
+     * - Approved rows marked YES are loaded into the supporter wall.
      *
-     * LIVE SUPPORTER SETUP:
-     * 1) Put reviewed/suitable logo files in /assets/.
-     * 2) Add reviewed free founding supporters to SUPPORTERS below.
-     * 3) Set DEMO_MODE to false when you want only real supporters shown.
+     * SETUP NEEDED:
+     * 1) Paste the code in google-apps-script-code.js into Apps Script.
+     * 2) Deploy it as a Web App.
+     * 3) Paste the Web App URL into GOOGLE_SCRIPT_URL below.
      **********************************************************************/
 
     const OWNER_EMAIL = "corneliusaureliush@gmail.com";
     const EMAIL_SUBJECT = "THE 12000 PIXEL SITE - LOGO + LINK";
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwTUpxpgZ1a0oYdpG8z_6C0OlF9vLzIWkznqZ0WhX0mvnNNHFvWor3vJpcYy-NN5DFNSg/exec";
     const TOTAL_PIXELS = 12000;
     const GOAL_LOGOS = 1000;
     const PIXELS_PER_LOGO = 12;
@@ -539,10 +546,10 @@
     let uploadedLogoData = "";
     let uploadedLogoMeta = null;
     let temporarySponsor = null;
+    let SHEET_SUPPORTERS = [];
 
     const SUPPORTERS = [
-      // Example real supporter:
-      // { name: "Business Name", url: "https://business.com", logo: "assets/business-logo.png", pixels: 12 }
+      // Optional manual supporters. Sheet supporters load automatically.
       { name: "Cornelius Aurelius", url: "https://corneliusaurelius.com/", logo: "", pixels: 12 },
       { name: "Colour Blindness in Football", url: "https://cornelius-aurelius.github.io/colour-blindness-in-football-project/#mission", logo: "", pixels: 12 }
     ];
@@ -575,7 +582,7 @@
     }
 
     function getSponsors() {
-      const live = [...SUPPORTERS];
+      const live = [...SHEET_SUPPORTERS, ...SUPPORTERS];
       if (temporarySponsor) live.unshift(temporarySponsor);
       if (!DEMO_MODE) return live;
       const demo = demoNames.map((name, i) => ({ name, url: "#upload", logo: makeDemoLogo(name, i), pixels: PIXELS_PER_LOGO }));
@@ -785,9 +792,9 @@
         logoPreview.innerHTML = `<img src="${uploadedLogoData}" alt="Uploaded logo preview">`;
 
         if (file.type === "image/svg+xml" || /\.svg$/i.test(file.name)) {
-          uploadedLogoMeta = { name: file.name, type: file.type || "SVG", size: file.size, dimensions: "SVG/vector" };
+          uploadedLogoMeta = { name: file.name, type: file.type || "image/svg+xml", size: file.size, dimensions: "SVG/vector" };
           statusItems.push({ kind: "ok", icon: "✅", text: "Preview loaded. SVG/vector logos usually work well." });
-          statusItems.push({ kind: "warn", icon: "⚠️", text: "Before sending, make sure the logo is clear and not cut off in the white preview box." });
+          statusItems.push({ kind: "warn", icon: "⚠️", text: "Before submitting, make sure the logo is clear and not cut off in the white preview box." });
           setLogoStatus(statusItems);
           showToast("Logo checked");
           return;
@@ -832,19 +839,6 @@
       return `Hi Cornelius,\n\nI would like to claim a free founding logo space on The 12,000 Pixel Website and help reveal the hidden 12.\n\nBusiness name: ${businessName.value}\nBusiness link: ${businessLink.value}\nContact email: ${contactEmail.value}\n\nLogo file to attach before sending:\nFile name: ${meta.name || "Not provided"}\nFile type: ${meta.type || "Not provided"}\nFile size: ${meta.size ? fileSizeLabel(meta.size) : "Not provided"}\nDimensions: ${meta.dimensions || "Not provided"}\n\nMessage:\n${message.value || "No extra message."}\n\nI understand submissions are reviewed before being added, to keep the wall suitable for the Colour Blindness in Football project.\n\nIMPORTANT: I will attach the logo file to this email before sending.\n\nThank you.`;
     }
 
-    function openMailto() {
-      const error = validateSubmission();
-      if (error) {
-        showToast(error);
-        return;
-      }
-      const subject = encodeURIComponent(EMAIL_SUBJECT);
-      const body = encodeURIComponent(buildEmailBody());
-      window.location.href = `mailto:${OWNER_EMAIL}?subject=${subject}&body=${body}`;
-      emailHelp.classList.add("show");
-      showToast("Email created — attach the logo before sending");
-    }
-
     function openGmailCompose() {
       const error = validateSubmission();
       if (error) {
@@ -861,6 +855,102 @@
       window.open(`https://mail.google.com/mail/?${params.toString()}`, "_blank", "noopener");
       emailHelp.classList.add("show");
       showToast("Gmail opened — attach the logo before sending");
+    }
+
+    function addHiddenInput(form, name, value) {
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.name = name;
+      input.value = value || "";
+      form.appendChild(input);
+    }
+
+    function submitToGoogleSheet(event) {
+      event.preventDefault();
+
+      const error = validateSubmission();
+      if (error) {
+        showToast(error);
+        return;
+      }
+
+      if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.includes("PASTE_")) {
+        showToast("Google Script URL is missing.");
+        return;
+      }
+
+      const iframeName = "google-submission-frame";
+      let iframe = document.querySelector(`iframe[name="${iframeName}"]`);
+
+      if (!iframe) {
+        iframe = document.createElement("iframe");
+        iframe.name = iframeName;
+        iframe.style.display = "none";
+        document.body.appendChild(iframe);
+      }
+
+      const form = document.createElement("form");
+      form.method = "POST";
+      form.action = GOOGLE_SCRIPT_URL;
+      form.target = iframeName;
+      form.style.display = "none";
+
+      const file = logoInput.files && logoInput.files[0];
+      const base64 = uploadedLogoData.includes(",")
+        ? uploadedLogoData.split(",")[1]
+        : uploadedLogoData;
+
+      addHiddenInput(form, "name", businessName.value.trim());
+      addHiddenInput(form, "url", businessLink.value.trim());
+      addHiddenInput(form, "email", contactEmail.value.trim());
+      addHiddenInput(form, "message", message.value.trim());
+      addHiddenInput(form, "fileName", file ? file.name : "logo");
+      addHiddenInput(form, "fileType", file ? file.type : uploadedLogoMeta.type || "");
+      addHiddenInput(form, "fileBase64", base64);
+      addHiddenInput(form, "homepage", document.getElementById("homepage")?.value || "");
+
+      document.body.appendChild(form);
+      form.submit();
+      form.remove();
+
+      emailHelp.classList.add("show");
+      showToast("Submitted for review");
+
+      temporarySponsor = {
+        name: businessName.value || "Your Business",
+        url: businessLink.value || "#upload",
+        logo: uploadedLogoData || makeDemoLogo(businessName.value || "Your Business", 999),
+        pixels: PIXELS_PER_LOGO
+      };
+
+      renderAll();
+    }
+
+    function loadApprovedSupporters() {
+      if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.includes("PASTE_")) {
+        renderAll();
+        return;
+      }
+
+      const callbackName = "loadPixelSupporters";
+
+      window[callbackName] = function(rows) {
+        SHEET_SUPPORTERS = Array.isArray(rows) ? rows : [];
+        renderAll();
+      };
+
+      const oldScript = document.getElementById("approved-supporters-loader");
+      if (oldScript) oldScript.remove();
+
+      const script = document.createElement("script");
+      script.id = "approved-supporters-loader";
+      script.src = `${GOOGLE_SCRIPT_URL}?action=list&callback=${callbackName}&v=${Date.now()}`;
+      script.onerror = () => {
+        console.warn("Could not load approved supporters.");
+        renderAll();
+      };
+
+      document.body.appendChild(script);
     }
 
     document.getElementById("preview-on-board").addEventListener("click", () => {
@@ -881,14 +971,11 @@
       document.getElementById("top").scrollIntoView({ behavior: "smooth", block: "start" });
     });
 
-    document.getElementById("sponsor-form").addEventListener("submit", event => {
-      event.preventDefault();
-      openMailto();
-    });
+    document.getElementById("sponsor-form").addEventListener("submit", submitToGoogleSheet);
     document.getElementById("gmail-compose").addEventListener("click", openGmailCompose);
 
     document.getElementById("year").textContent = new Date().getFullYear();
-    renderAll();
+    loadApprovedSupporters();
   </script>
 </body>
 </html>
