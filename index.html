@@ -1,9 +1,5 @@
-Yes — copy **everything below** and replace your full GitHub `index.html` with it.
-
-This upgraded version removes demo supporters, removes the built-in Cornelius supporters, makes real approved supporters much more visible, adds a live loading/status message, and keeps your Google Sheet automation connected. Your previous uploaded file already had the Google Script connection and form submission logic, so I kept that foundation and upgraded it. 
-
-```html
 <!DOCTYPE html>
+
 <html lang="en-GB">
 <head>
   <meta charset="UTF-8" />
@@ -30,7 +26,6 @@ This upgraded version removes demo supporters, removes the built-in Cornelius su
       --gold: #f6b33b;
       --gold2: #ff6a1a;
       --line: rgba(255,205,128,.24);
-      --panel: rgba(255,183,77,.09);
       --shadow: 0 30px 110px rgba(0,0,0,.64);
       --max: 1120px;
       --radius: 26px;
@@ -901,6 +896,7 @@ This upgraded version removes demo supporters, removes the built-in Cornelius su
       }
     }
   </style>
+
 </head>
 
 <body>
@@ -909,23 +905,26 @@ This upgraded version removes demo supporters, removes the built-in Cornelius su
   <header class="top">
     <div class="status">The 12,000 Pixel Website™ • <b>Real approved supporters only</b> • Reveal the hidden <b>12</b></div>
 
-    <div class="nav">
-      <a class="brand" href="#top" aria-label="The 12000 Pixel Website home">
-        <span class="brand-mark">12</span>
-        <span>
-          <strong>The 12,000 Pixel Website</strong>
-          <span>Colour-blind test logo wall</span>
-        </span>
-      </a>
+```
+<div class="nav">
+  <a class="brand" href="#top" aria-label="The 12000 Pixel Website home">
+    <span class="brand-mark">12</span>
+    <span>
+      <strong>The 12,000 Pixel Website</strong>
+      <span>Colour-blind test logo wall</span>
+    </span>
+  </a>
 
-      <nav class="navlinks" aria-label="Simple page links">
-        <a href="#upload" class="hot">🆓 Free Logo</a>
-        <a href="#supporters">🏆 Supporters</a>
-        <a href="https://cornelius-aurelius.github.io/Sponsor-the-Hidden-Player/">🤝 Sponsor</a>
-        <a href="https://cornelius-aurelius.github.io/colour-blindness-in-football-project/#mission">⚽ Project</a>
-        <a href="https://corneliusaurelius.com/">🌐 Cornelius</a>
-      </nav>
-    </div>
+  <nav class="navlinks" aria-label="Simple page links">
+    <a href="#upload" class="hot">🆓 Free Logo</a>
+    <a href="#supporters">🏆 Supporters</a>
+    <a href="https://cornelius-aurelius.github.io/Sponsor-the-Hidden-Player/">🤝 Sponsor</a>
+    <a href="https://cornelius-aurelius.github.io/colour-blindness-in-football-project/#mission">⚽ Project</a>
+    <a href="https://corneliusaurelius.com/">🌐 Cornelius</a>
+  </nav>
+</div>
+```
+
   </header>
 
   <main id="main">
@@ -935,135 +934,138 @@ This upgraded version removes demo supporters, removes the built-in Cornelius su
           <div class="test-board" data-board="hero"></div>
         </div>
 
-        <div class="hero-copy">
-          <h1>The hidden <span class="gold">12</span></h1>
+```
+    <div class="hero-copy">
+      <h1>The hidden <span class="gold">12</span></h1>
 
-          <p class="hero-sub">
-            Add your business logo for free. Every approved logo becomes part of a colour-blind test circle, helping reveal the hidden 12 and support the Colour Blindness in Football project.
-          </p>
+      <p class="hero-sub">
+        Add your business logo for free. Every approved logo becomes part of a colour-blind test circle, helping reveal the hidden 12 and support the Colour Blindness in Football project.
+      </p>
 
-          <div class="live-status" id="live-status">⏳ Loading approved supporters…</div>
+      <div class="live-status" id="live-status">⏳ Loading approved supporters…</div>
 
-          <div class="progress-wrap" aria-label="12,000 pixel progress">
-            <div class="progress-bar" id="progress-bar"></div>
-          </div>
+      <div class="progress-wrap" aria-label="12,000 pixel progress">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
 
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#upload">🆓 Claim a free logo space</a>
-            <a class="btn" href="#supporters">🏆 View supporters</a>
-            <a class="btn" href="https://cornelius-aurelius.github.io/Sponsor-the-Hidden-Player/">🤝 Sponsor the project</a>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#upload">🆓 Claim a free logo space</a>
+        <a class="btn" href="#supporters">🏆 View supporters</a>
+        <a class="btn" href="https://cornelius-aurelius.github.io/Sponsor-the-Hidden-Player/">🤝 Sponsor the project</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="upload">
+  <div class="wrap">
+    <div class="kicker">🆓 Free founding logo space</div>
+
+    <h2>Claim your free logo space</h2>
+
+    <p class="section-lead">
+      Submit your business name, link and logo. Approved businesses are added to the hidden number 12 automatically after review.
+    </p>
+
+    <div class="form-grid">
+      <form class="panel form-card" id="sponsor-form">
+        <div style="position:absolute; left:-9999px;" aria-hidden="true">
+          <label for="homepage">Leave this blank</label>
+          <input id="homepage" name="homepage" autocomplete="off" tabindex="-1" />
+        </div>
+
+        <div class="field">
+          <label for="business-name">Business name</label>
+          <input id="business-name" name="business-name" placeholder="Example: Your Business" required />
+        </div>
+
+        <div class="field">
+          <label for="business-link">Business website link</label>
+          <input id="business-link" name="business-link" type="url" placeholder="https://example.com" required />
+        </div>
+
+        <div class="field">
+          <label for="contact-email">Contact email</label>
+          <input id="contact-email" name="contact-email" type="email" placeholder="you@example.com" required />
+        </div>
+
+        <div class="field">
+          <label for="locked-subject">Submission type</label>
+          <input id="locked-subject" value="THE 12000 PIXEL SITE - LOGO + LINK" readonly />
+        </div>
+
+        <div class="field">
+          <label for="logo-upload">Upload logo</label>
+          <input id="logo-upload" name="logo-upload" type="file" accept=".png,.jpg,.jpeg,.webp,.svg,image/png,image/jpeg,image/webp,image/svg+xml" required />
+        </div>
+
+        <div class="logo-rules" aria-label="Logo upload rules">
+          <div class="rule">✅ <span><strong>Best logo:</strong> square PNG or SVG, clear on a white background.</span></div>
+          <div class="rule">✅ <span><strong>Accepted:</strong> PNG, JPG, WEBP or SVG.</span></div>
+          <div class="rule">✅ <span><strong>Maximum file size:</strong> 5MB.</span></div>
+          <div class="rule">✅ <span><strong>Free:</strong> no payment required. Approved businesses are added after review.</span></div>
+        </div>
+
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Optional: why you support the project, or any note about your logo/link."></textarea>
+        </div>
+
+        <div class="hero-actions" style="justify-content:flex-start; margin-top: 10px;">
+          <button class="btn btn-primary" type="button" id="preview-on-board">Preview in the 12</button>
+          <button class="btn btn-primary" type="submit">Submit for review</button>
+          <button class="btn" type="button" id="gmail-compose">Open Gmail backup</button>
+        </div>
+
+        <div class="email-help note-box" id="email-help">
+          Submitted businesses are saved for review. Once approved in the Google Sheet, the logo will appear on the hidden 12 automatically.
+        </div>
+      </form>
+
+      <aside class="panel form-card">
+        <h3>Your logo check</h3>
+
+        <div class="upload-preview">
+          <div class="preview-logo" id="logo-preview">LOGO<br>PREVIEW</div>
+          <div>
+            <strong id="preview-name">Your Business</strong>
+            <p class="note" id="preview-link">https://example.com</p>
+            <p class="note">If it looks clear here, it should display correctly inside the hidden 12.</p>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section class="section" id="upload">
-      <div class="wrap">
-        <div class="kicker">🆓 Free founding logo space</div>
-
-        <h2>Claim your free logo space</h2>
-
-        <p class="section-lead">
-          Submit your business name, link and logo. Approved businesses are added to the hidden number 12 automatically after review.
-        </p>
-
-        <div class="form-grid">
-          <form class="panel form-card" id="sponsor-form">
-            <div style="position:absolute; left:-9999px;" aria-hidden="true">
-              <label for="homepage">Leave this blank</label>
-              <input id="homepage" name="homepage" autocomplete="off" tabindex="-1" />
-            </div>
-
-            <div class="field">
-              <label for="business-name">Business name</label>
-              <input id="business-name" name="business-name" placeholder="Example: Your Business" required />
-            </div>
-
-            <div class="field">
-              <label for="business-link">Business website link</label>
-              <input id="business-link" name="business-link" type="url" placeholder="https://example.com" required />
-            </div>
-
-            <div class="field">
-              <label for="contact-email">Contact email</label>
-              <input id="contact-email" name="contact-email" type="email" placeholder="you@example.com" required />
-            </div>
-
-            <div class="field">
-              <label for="locked-subject">Submission type</label>
-              <input id="locked-subject" value="THE 12000 PIXEL SITE - LOGO + LINK" readonly />
-            </div>
-
-            <div class="field">
-              <label for="logo-upload">Upload logo</label>
-              <input id="logo-upload" name="logo-upload" type="file" accept=".png,.jpg,.jpeg,.webp,.svg,image/png,image/jpeg,image/webp,image/svg+xml" required />
-            </div>
-
-            <div class="logo-rules" aria-label="Logo upload rules">
-              <div class="rule">✅ <span><strong>Best logo:</strong> square PNG or SVG, clear on a white background.</span></div>
-              <div class="rule">✅ <span><strong>Accepted:</strong> PNG, JPG, WEBP or SVG.</span></div>
-              <div class="rule">✅ <span><strong>Maximum file size:</strong> 5MB.</span></div>
-              <div class="rule">✅ <span><strong>Free:</strong> no payment required. Approved businesses are added after review.</span></div>
-            </div>
-
-            <div class="field">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Optional: why you support the project, or any note about your logo/link."></textarea>
-            </div>
-
-            <div class="hero-actions" style="justify-content:flex-start; margin-top: 10px;">
-              <button class="btn btn-primary" type="button" id="preview-on-board">Preview in the 12</button>
-              <button class="btn btn-primary" type="submit">Submit for review</button>
-              <button class="btn" type="button" id="gmail-compose">Open Gmail backup</button>
-            </div>
-
-            <div class="email-help note-box" id="email-help">
-              Submitted businesses are saved for review. Once approved in the Google Sheet, the logo will appear on the hidden 12 automatically.
-            </div>
-          </form>
-
-          <aside class="panel form-card">
-            <h3>Your logo check</h3>
-
-            <div class="upload-preview">
-              <div class="preview-logo" id="logo-preview">LOGO<br>PREVIEW</div>
-              <div>
-                <strong id="preview-name">Your Business</strong>
-                <p class="note" id="preview-link">https://example.com</p>
-                <p class="note">If it looks clear here, it should display correctly inside the hidden 12.</p>
-              </div>
-            </div>
-
-            <div class="status-list" id="logo-status">
-              <div class="status-item warn">⚠️ Upload a logo to check format, size and preview.</div>
-            </div>
-
-            <div class="note-box">
-              <strong>How publishing works:</strong><br />
-              The form sends details to your Google Sheet and Drive. Change <code>approved</code> from <code>NO</code> to <code>YES</code>. The live site then loads the supporter automatically.
-            </div>
-
-            <div class="mini-board">
-              <div class="test-board" data-board="mini" aria-label="Mini preview of the number 12 logo wall"></div>
-            </div>
-          </aside>
+        <div class="status-list" id="logo-status">
+          <div class="status-item warn">⚠️ Upload a logo to check format, size and preview.</div>
         </div>
-      </div>
-    </section>
 
-    <section class="section" id="supporters">
-      <div class="wrap">
-        <div class="kicker">🏆 Founding supporters</div>
+        <div class="note-box">
+          <strong>How publishing works:</strong><br />
+          The form sends details to your Google Sheet and Drive. Change <code>approved</code> from <code>NO</code> to <code>YES</code>. The live site then loads the supporter automatically.
+        </div>
 
-        <h2>Every free logo helps reveal the 12.</h2>
+        <div class="mini-board">
+          <div class="test-board" data-board="mini" aria-label="Mini preview of the number 12 logo wall"></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
 
-        <p class="section-lead">
-          Approved founding supporters appear here automatically from the connected Google Sheet.
-        </p>
+<section class="section" id="supporters">
+  <div class="wrap">
+    <div class="kicker">🏆 Founding supporters</div>
 
-        <div class="sponsor-list" id="sponsor-list"></div>
-      </div>
-    </section>
+    <h2>Every free logo helps reveal the 12.</h2>
+
+    <p class="section-lead">
+      Approved founding supporters appear here automatically from the connected Google Sheet.
+    </p>
+
+    <div class="sponsor-list" id="sponsor-list"></div>
+  </div>
+</section>
+```
+
   </main>
 
   <footer id="footer">
@@ -1078,21 +1080,11 @@ This upgraded version removes demo supporters, removes the built-in Cornelius su
   <script>
     const OWNER_EMAIL = "corneliusaureliush@gmail.com";
     const EMAIL_SUBJECT = "THE 12000 PIXEL SITE - LOGO + LINK";
-
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwTUpxpgZ1a0oYdpG8z_6C0OlF9vLzIWkznqZ0WhX0mvnNNHFvWor3vJpcYy-NN5DFNSg/exec";
 
     const TOTAL_PIXELS = 12000;
-
-    /*
-      IMPORTANT:
-      This makes early supporters visible.
-      Even if the Google Sheet says 12 pixels, the website will display each approved supporter as at least 3000 visible pixels.
-      1 supporter = 25% of the 12
-      4 supporters = full 12
-    */
     const DEFAULT_PIXELS_PER_LOGO = 3000;
     const MIN_VISIBLE_PIXELS_PER_SUPPORTER = 3000;
-
     const MAX_LOGO_BYTES = 5 * 1024 * 1024;
 
     let uploadedLogoData = "";
@@ -1134,20 +1126,10 @@ This upgraded version removes demo supporters, removes the built-in Cornelius su
         .toUpperCase();
     }
 
-    function makeFallbackLogo(name, i = 0) {
-      const bg = ["#ffffff", "#fff2c7", "#e9ffe0", "#e7f0ff", "#ffe5df", "#f2e7ff"][i % 6];
-      const fg = ["#0b1b0a", "#111827", "#7a2e0a", "#073b4c", "#3b0764", "#14532d"][i % 6];
-      const text = initials(name);
-      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" rx="18" fill="${bg}"/><circle cx="50" cy="50" r="36" fill="${fg}" opacity=".12"/><text x="50" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="${fg}">${text}</text></svg>`;
-      return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
-    }
-
     function cleanUrl(url) {
       const value = String(url || "").trim();
-
       if (!value) return "#upload";
       if (/^https?:\/\//i.test(value)) return value;
-
       return "https://" + value;
     }
 
@@ -1155,8 +1137,8 @@ This upgraded version removes demo supporters, removes the built-in Cornelius su
       const name = String(s && s.name ? s.name : "").trim();
       const url = cleanUrl(s && s.url ? s.url : "");
       const logo = String(s && s.logo ? s.logo : "").trim();
-
       const rawPixels = Number(s && s.pixels ? s.pixels : 0);
+
       const pixels = Math.max(
         MIN_VISIBLE_PIXELS_PER_SUPPORTER,
         rawPixels || DEFAULT_PIXELS_PER_LOGO
@@ -1221,7 +1203,6 @@ This upgraded version removes demo supporters, removes the built-in Cornelius su
     function isInCircle(x, y, cols, rows) {
       const nx = ((x + .5) / cols - .5) / .5;
       const ny = ((y + .5) / rows - .5) / .5;
-
       return (nx * nx + ny * ny) <= .99;
     }
 
@@ -1249,7 +1230,7 @@ This upgraded version removes demo supporters, removes the built-in Cornelius su
       return span;
     }
 
-    function addLogoImageOrInitials(parent, sponsor, index) {
+    function addLogoImageOrInitials(parent, sponsor) {
       parent.textContent = "";
 
       if (!sponsor.logo) {
@@ -1285,6 +1266,7 @@ This upgraded version removes demo supporters, removes the built-in Cornelius su
       for (let y = 0; y < rows; y++) {
         for (let x = 0; x < cols; x++) {
           const idx = (y * cols + x) * 4 + 3;
+
           if (isInCircle(x, y, cols, rows) && mask[idx] > 20) {
             numberCells.push(y * cols + x);
           }
@@ -1334,9 +1316,10 @@ This upgraded version removes demo supporters, removes the built-in Cornelius su
             }
 
             dot.title = `${sponsor.name} — ${formatNumber(sponsor.pixels)} awareness pixels`;
-            addLogoImageOrInitials(dot, sponsor, revealIndex);
+            addLogoImageOrInitials(dot, sponsor);
           } else {
             dot.className = "pixel-dot" + (isNumber ? " number-hidden" : "");
+
             const palette = isNumber
               ? ["#7c772f", "#8c7b2e", "#9b7727", "#7d8f36", "#9a7225"]
               : colours;
@@ -1368,7 +1351,7 @@ This upgraded version removes demo supporters, removes the built-in Cornelius su
 
       if (!lastLoadOk) {
         status.classList.add("bad");
-        status.textContent = "⚠️ Could not confirm Google Sheet connection yet. Check the Apps Script deployment if supporters do not load.";
+        status.textContent = "⚠️ Google Sheet connection not confirmed yet. If this stays here, redeploy Apps Script as Web app: Anyone.";
         return;
       }
 
@@ -1397,7 +1380,7 @@ This upgraded version removes demo supporters, removes the built-in Cornelius su
         return;
       }
 
-      sponsors.forEach((s, i) => {
+      sponsors.forEach((s) => {
         const card = document.createElement("a");
         card.className = "sponsor-chip";
         card.href = s.url || "#upload";
@@ -1759,7 +1742,10 @@ Thank you.`;
       };
 
       const oldScript = document.getElementById("approved-supporters-loader");
-      if (oldScript) oldScript.remove();
+
+      if (oldScript) {
+        oldScript.remove();
+      }
 
       const script = document.createElement("script");
       script.id = "approved-supporters-loader";
@@ -1816,14 +1802,6 @@ Thank you.`;
 
     window.setInterval(loadApprovedSupporters, 60000);
   </script>
+
 </body>
 </html>
-```
-
-After pasting into GitHub, click **Commit changes**, wait 1–2 minutes, then open your live site and press:
-
-```text
-CTRL + SHIFT + R
-```
-
-This version should make your approved KRONATRIX supporter obvious because even if the sheet says `12`, the website displays each approved supporter as at least `3000` visible pixels.
