@@ -12,6 +12,7 @@
   <meta property="og:description" content="One colour-blind test circle. One hidden number 12. Free founding business logos reveal it one logo at a time." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/colour-blindness-football-cover.jpg" />
+
   <style>
     :root {
       --bg: #070201;
@@ -31,6 +32,7 @@
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       color: var(--ink);
@@ -43,10 +45,23 @@
       line-height: 1.5;
       overflow-x: hidden;
     }
+
     a { color: inherit; text-decoration: none; }
     button, input, textarea { font: inherit; }
     img { max-width: 100%; display: block; }
-    .skip-link { position: absolute; left: -999px; top: 12px; z-index: 999; background: var(--gold); color: #170604; padding: 10px 14px; border-radius: 10px; font-weight: 1000; }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 12px;
+      z-index: 999;
+      background: var(--gold);
+      color: #170604;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-weight: 1000;
+    }
+
     .skip-link:focus { left: 12px; }
 
     .top {
@@ -58,6 +73,7 @@
       box-shadow: 0 14px 40px rgba(0,0,0,.38);
       backdrop-filter: blur(14px);
     }
+
     .status {
       min-height: 28px;
       display: flex;
@@ -75,7 +91,9 @@
       white-space: nowrap;
       overflow: hidden;
     }
+
     .status b { color: var(--gold); }
+
     .nav {
       width: min(var(--max), calc(100% - 24px));
       margin: 0 auto;
@@ -86,7 +104,14 @@
       min-height: 48px;
       padding: 6px 0;
     }
-    .brand { display: inline-flex; align-items: center; gap: 9px; min-width: 0; }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      min-width: 0;
+    }
+
     .brand-mark {
       width: 34px;
       height: 34px;
@@ -98,9 +123,29 @@
       font-weight: 1000;
       box-shadow: 0 12px 30px rgba(255,106,26,.24);
     }
-    .brand strong { display: block; line-height: 1.05; font-size: 14px; letter-spacing: -.02em; }
-    .brand span { display: block; color: var(--muted); font-size: 11px; margin-top: 1px; }
-    .navlinks { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 5px; }
+
+    .brand strong {
+      display: block;
+      line-height: 1.05;
+      font-size: 14px;
+      letter-spacing: -.02em;
+    }
+
+    .brand span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 1px;
+    }
+
+    .navlinks {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
     .navlinks a {
       display: inline-flex;
       align-items: center;
@@ -113,9 +158,18 @@
       white-space: nowrap;
       transition: .18s ease;
     }
-    .navlinks a:hover, .navlinks .hot { background: var(--gold); color: #170604; }
 
-    .wrap { width: min(var(--max), calc(100% - 28px)); margin: 0 auto; }
+    .navlinks a:hover,
+    .navlinks .hot {
+      background: var(--gold);
+      color: #170604;
+    }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 28px));
+      margin: 0 auto;
+    }
+
     .hero {
       position: relative;
       min-height: calc(100svh - 76px);
@@ -125,6 +179,7 @@
       overflow: hidden;
       isolation: isolate;
     }
+
     .hero::before {
       content: "";
       position: absolute;
@@ -137,6 +192,7 @@
       filter: blur(12px) saturate(1.06) brightness(.6);
       transform: scale(1.08);
     }
+
     .hero::after {
       content: "";
       position: absolute;
@@ -147,7 +203,9 @@
         radial-gradient(circle at 50% 82%, rgba(0,0,0,.72), transparent 36rem),
         linear-gradient(180deg, rgba(7,2,1,.05), rgba(7,2,1,.96));
     }
+
     .hero-focus { text-align: center; }
+
     .board-shell {
       position: relative;
       width: min(74svh, 94vw, 760px);
@@ -157,17 +215,26 @@
       background: linear-gradient(135deg, rgba(255,106,26,.86), rgba(246,179,59,.82), rgba(255,244,230,.22));
       box-shadow: 0 0 0 1px rgba(255,205,128,.34), 0 38px 110px rgba(0,0,0,.72), 0 0 90px rgba(255,106,26,.24);
     }
+
     .hero-copy {
       margin: 10px auto 0;
       max-width: 920px;
     }
-    h1, h2, h3 { margin: 0; line-height: 1.04; letter-spacing: -.045em; }
+
+    h1, h2, h3 {
+      margin: 0;
+      line-height: 1.04;
+      letter-spacing: -.045em;
+    }
+
     h1 {
       font-size: clamp(32px, 5.2vw, 74px);
       text-transform: uppercase;
       text-shadow: 0 12px 48px rgba(0,0,0,.7);
     }
+
     .gold { color: var(--gold); }
+
     .hero-sub {
       margin: 6px auto 0;
       color: rgba(255,242,216,.9);
@@ -175,7 +242,15 @@
       font-size: clamp(15px, 1.65vw, 20px);
       font-weight: 850;
     }
-    .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 9px; margin: 12px auto 0; }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 9px;
+      margin: 12px auto 0;
+    }
+
     .btn {
       display: inline-flex;
       align-items: center;
@@ -191,10 +266,21 @@
       cursor: pointer;
       transition: transform .18s ease, background .18s ease, border-color .18s ease;
     }
-    .btn:hover { transform: translateY(-2px); background: rgba(255,255,255,.13); border-color: rgba(255,205,128,.44); }
-    .btn-primary { background: var(--gold); color: #170604; border-color: transparent; box-shadow: 0 16px 42px rgba(246,179,59,.24); }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,.13);
+      border-color: rgba(255,205,128,.44);
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #170604;
+      border-color: transparent;
+      box-shadow: 0 16px 42px rgba(246,179,59,.24);
+    }
+
     .btn-primary:hover { background: #ffe18a; }
-    .btn-small { min-height: 38px; padding: 8px 11px; font-size: 13px; }
 
     .test-board {
       position: relative;
@@ -210,6 +296,7 @@
       box-shadow: inset 0 0 58px rgba(0,0,0,.45);
       isolation: isolate;
     }
+
     .test-board::before {
       content: "";
       position: absolute;
@@ -221,6 +308,7 @@
         radial-gradient(circle at 50% 84%, rgba(0,0,0,.42), transparent 45%);
       pointer-events: none;
     }
+
     .board-grid {
       position: absolute;
       inset: 0;
@@ -229,6 +317,7 @@
       gap: 2px;
       padding: clamp(9px, 1.4vw, 15px);
     }
+
     .pixel-dot {
       position: relative;
       border-radius: 50%;
@@ -238,9 +327,22 @@
       border: 1px solid rgba(0,0,0,.06);
       transform: scale(var(--s, .88));
     }
+
     .pixel-dot.outside { visibility: hidden; }
-    .pixel-dot.number-hidden { opacity: .64; filter: saturate(.65) brightness(.8); }
-    .pixel-dot.number-hidden::after { content: ""; position: absolute; inset: 20%; border-radius: inherit; background: rgba(255,255,255,.07); }
+
+    .pixel-dot.number-hidden {
+      opacity: .64;
+      filter: saturate(.65) brightness(.8);
+    }
+
+    .pixel-dot.number-hidden::after {
+      content: "";
+      position: absolute;
+      inset: 20%;
+      border-radius: inherit;
+      background: rgba(255,255,255,.07);
+    }
+
     .pixel-logo {
       border-radius: 22%;
       background: #fff;
@@ -251,9 +353,31 @@
       box-shadow: 0 0 0 1px rgba(255,255,255,.5), 0 4px 12px rgba(0,0,0,.32), 0 0 16px rgba(255,191,64,.18);
       transition: transform .18s ease, filter .18s ease;
     }
-    .pixel-logo:hover { transform: scale(1.32); z-index: 20; filter: brightness(1.08); }
-    .pixel-logo img { width: 100%; height: 100%; object-fit: contain; padding: 2px; }
-    .initials { width: 100%; height: 100%; display: grid; place-items: center; color: #130502; background: linear-gradient(135deg, #fff, #ffd166); font-weight: 1000; font-size: 10px; }
+
+    .pixel-logo:hover {
+      transform: scale(1.32);
+      z-index: 20;
+      filter: brightness(1.08);
+    }
+
+    .pixel-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 2px;
+    }
+
+    .initials {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      color: #130502;
+      background: linear-gradient(135deg, #fff, #ffd166);
+      font-weight: 1000;
+      font-size: 10px;
+    }
+
     .board-watermark {
       position: absolute;
       inset: 0;
@@ -270,6 +394,7 @@
       pointer-events: none;
       text-shadow: 0 0 34px rgba(255,179,59,.16);
     }
+
     .board-caption {
       position: absolute;
       left: 50%;
@@ -289,10 +414,32 @@
 
     .section { padding: 58px 0; }
     .section:first-of-type { padding-top: 48px; }
-    .section-lead { margin: 12px 0 0; color: var(--muted); font-size: clamp(16px, 1.8vw, 20px); max-width: 860px; }
-    .panel { border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(180deg, rgba(255,183,77,.105), rgba(255,106,26,.044)); box-shadow: var(--shadow); overflow: hidden; }
-    .form-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: 22px; align-items: start; margin-top: 24px; }
+
+    .section-lead {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: clamp(16px, 1.8vw, 20px);
+      max-width: 860px;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,183,77,.105), rgba(255,106,26,.044));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 22px;
+      align-items: start;
+      margin-top: 24px;
+    }
+
     .form-card { padding: clamp(20px, 3vw, 32px); }
+
     .kicker {
       display: inline-flex;
       align-items: center;
@@ -309,11 +456,30 @@
       letter-spacing: .075em;
       margin-bottom: 12px;
     }
-    h2 { font-size: clamp(30px, 4.4vw, 58px); text-transform: uppercase; }
+
+    h2 {
+      font-size: clamp(30px, 4.4vw, 58px);
+      text-transform: uppercase;
+    }
+
     h3 { font-size: 24px; }
-    .field { display: grid; gap: 8px; margin-bottom: 13px; }
-    .field label { color: var(--cream); font-weight: 1000; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
-    .field input, .field textarea {
+
+    .field {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 13px;
+    }
+
+    .field label {
+      color: var(--cream);
+      font-weight: 1000;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .field input,
+    .field textarea {
       width: 100%;
       color: var(--ink);
       background: rgba(0,0,0,.32);
@@ -322,53 +488,245 @@
       padding: 12px 13px;
       outline: none;
     }
-    .field input[readonly] { color: var(--gold); font-weight: 900; }
-    .field input:focus, .field textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(246,179,59,.13); }
-    textarea { min-height: 104px; resize: vertical; }
-    .logo-rules { display: grid; gap: 8px; margin: 12px 0; }
-    .rule { display: flex; gap: 8px; align-items: flex-start; color: var(--muted); font-size: 13px; }
+
+    .field input[readonly] {
+      color: var(--gold);
+      font-weight: 900;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(246,179,59,.13);
+    }
+
+    textarea {
+      min-height: 104px;
+      resize: vertical;
+    }
+
+    .logo-rules {
+      display: grid;
+      gap: 8px;
+      margin: 12px 0;
+    }
+
+    .rule {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
     .rule strong { color: var(--cream); }
-    .status-list { display: grid; gap: 8px; margin-top: 12px; }
-    .status-item { display: flex; align-items: flex-start; gap: 8px; color: var(--muted); font-size: 13px; }
+
+    .status-list {
+      display: grid;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .status-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
     .status-item.ok { color: #dff7b8; }
     .status-item.warn { color: #ffe0a6; }
     .status-item.bad { color: #ffb4a8; }
-    .note { color: var(--muted); font-size: 13px; margin: 9px 0 0; }
-    .note-box { margin-top: 14px; padding: 14px; border-radius: 18px; border: 1px solid rgba(255,209,102,.28); background: rgba(255,209,102,.1); color: var(--cream); font-weight: 850; }
-    code { background: rgba(0,0,0,.34); border: 1px solid rgba(255,255,255,.12); border-radius: 8px; padding: 2px 6px; color: #ffe39b; }
-    .upload-preview { display: grid; grid-template-columns: 108px 1fr; gap: 15px; align-items: center; padding: 14px; border: 1px dashed rgba(255,205,128,.36); border-radius: 20px; background: rgba(0,0,0,.24); margin: 15px 0; }
-    .preview-logo { width: 108px; height: 108px; border-radius: 20px; background: #fff; color: #170604; display: grid; place-items: center; text-align: center; font-weight: 1000; font-size: 13px; overflow: hidden; }
-    .preview-logo img { width: 100%; height: 100%; object-fit: contain; padding: 8px; }
-    .email-help { display: none; margin-top: 14px; }
-    .email-help.show { display: block; }
-    .mini-board { margin-top: 18px; max-width: 410px; }
 
-    .sponsor-list { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-top: 22px; }
-    .sponsor-chip { min-height: 112px; display: grid; gap: 8px; align-content: center; justify-items: center; text-align: center; padding: 14px; border-radius: 18px; border: 1px solid rgba(255,205,128,.22); background: rgba(255,255,255,.06); }
-    .sponsor-chip img { width: 52px; height: 52px; object-fit: contain; background: #fff; border-radius: 12px; padding: 5px; }
+    .note {
+      color: var(--muted);
+      font-size: 13px;
+      margin: 9px 0 0;
+    }
+
+    .note-box {
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,209,102,.28);
+      background: rgba(255,209,102,.1);
+      color: var(--cream);
+      font-weight: 850;
+    }
+
+    code {
+      background: rgba(0,0,0,.34);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 8px;
+      padding: 2px 6px;
+      color: #ffe39b;
+    }
+
+    .upload-preview {
+      display: grid;
+      grid-template-columns: 108px 1fr;
+      gap: 15px;
+      align-items: center;
+      padding: 14px;
+      border: 1px dashed rgba(255,205,128,.36);
+      border-radius: 20px;
+      background: rgba(0,0,0,.24);
+      margin: 15px 0;
+    }
+
+    .preview-logo {
+      width: 108px;
+      height: 108px;
+      border-radius: 20px;
+      background: #fff;
+      color: #170604;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-weight: 1000;
+      font-size: 13px;
+      overflow: hidden;
+    }
+
+    .preview-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 8px;
+    }
+
+    .email-help {
+      display: none;
+      margin-top: 14px;
+    }
+
+    .email-help.show { display: block; }
+
+    .mini-board {
+      margin-top: 18px;
+      max-width: 410px;
+    }
+
+    .sponsor-list {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .sponsor-chip {
+      min-height: 112px;
+      display: grid;
+      gap: 8px;
+      align-content: center;
+      justify-items: center;
+      text-align: center;
+      padding: 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,205,128,.22);
+      background: rgba(255,255,255,.06);
+    }
+
+    .sponsor-chip img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 12px;
+      padding: 5px;
+    }
+
     .sponsor-chip strong { font-size: 13px; }
     .sponsor-chip span { color: var(--muted); font-size: 12px; }
 
-    footer { padding: 48px 0; border-top: 1px solid var(--line); background: #040100; text-align: center; }
-    .footer-domain { display: inline-flex; align-items: center; justify-content: center; padding: 16px 22px; border-radius: 999px; background: var(--gold); color: #170604; font-size: clamp(22px, 3vw, 38px); font-weight: 1000; letter-spacing: -.03em; box-shadow: 0 18px 54px rgba(246,179,59,.2); }
-    footer p { color: var(--muted); margin: 12px auto 0; max-width: 700px; }
-    .toast { position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%) translateY(80px); z-index: 200; padding: 12px 16px; border-radius: 999px; background: var(--gold); color: #160603; font-weight: 1000; opacity: 0; pointer-events: none; transition: .25s ease; box-shadow: 0 20px 50px rgba(0,0,0,.34); }
-    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    footer {
+      padding: 48px 0;
+      border-top: 1px solid var(--line);
+      background: #040100;
+      text-align: center;
+    }
+
+    .footer-domain {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 22px;
+      border-radius: 999px;
+      background: var(--gold);
+      color: #170604;
+      font-size: clamp(22px, 3vw, 38px);
+      font-weight: 1000;
+      letter-spacing: -.03em;
+      box-shadow: 0 18px 54px rgba(246,179,59,.2);
+    }
+
+    footer p {
+      color: var(--muted);
+      margin: 12px auto 0;
+      max-width: 700px;
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 22px;
+      transform: translateX(-50%) translateY(80px);
+      z-index: 200;
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: var(--gold);
+      color: #160603;
+      font-weight: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: .25s ease;
+      box-shadow: 0 20px 50px rgba(0,0,0,.34);
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
 
     @media (max-width: 900px) {
-      .nav { display: grid; grid-template-columns: 1fr; justify-items: center; }
+      .nav {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+      }
+
       .navlinks { justify-content: center; }
       .hero { min-height: calc(100svh - 104px); }
       .board-shell { width: min(68svh, 94vw, 710px); }
       .form-grid { grid-template-columns: 1fr; }
       .sponsor-list { grid-template-columns: repeat(3, 1fr); }
     }
+
     @media (max-width: 640px) {
-      .status { font-size: 10px; gap: 8px; min-height: 24px; }
+      .status {
+        font-size: 10px;
+        gap: 8px;
+        min-height: 24px;
+      }
+
       .brand span { display: none; }
-      .navlinks a { font-size: 11px; padding: 6px 7px; }
-      .hero { min-height: calc(100svh - 106px); padding: 8px 0 20px; }
-      .board-shell { width: min(94vw, calc(100svh - 220px)); min-width: 290px; }
+
+      .navlinks a {
+        font-size: 11px;
+        padding: 6px 7px;
+      }
+
+      .hero {
+        min-height: calc(100svh - 106px);
+        padding: 8px 0 20px;
+      }
+
+      .board-shell {
+        width: min(94vw, calc(100svh - 220px));
+        min-width: 290px;
+      }
+
       h1 { font-size: clamp(30px, 10vw, 48px); }
       .hero-sub { font-size: 14px; }
       .btn { width: 100%; }
@@ -379,16 +737,22 @@
     }
   </style>
 </head>
+
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="top">
     <div class="status">The 12,000 Pixel Website™ • <b>Free</b> logo spaces • Reveal the hidden <b>12</b></div>
+
     <div class="nav">
       <a class="brand" href="#top" aria-label="The 12000 Pixel Website home">
         <span class="brand-mark">12</span>
-        <span><strong>The 12,000 Pixel Website</strong><span>Colour-blind test logo wall</span></span>
+        <span>
+          <strong>The 12,000 Pixel Website</strong>
+          <span>Colour-blind test logo wall</span>
+        </span>
       </a>
+
       <nav class="navlinks" aria-label="Simple page links">
         <a href="#upload" class="hot">🆓 Free Logo</a>
         <a href="https://cornelius-aurelius.github.io/Sponsor-the-Hidden-Player/">🤝 Sponsor</a>
@@ -408,6 +772,7 @@
         <div class="hero-copy">
           <h1>The hidden <span class="gold">12</span></h1>
           <p class="hero-sub">Add your business logo for free. Every approved logo becomes part of a colour-blind test circle, helping reveal the hidden 12 and support the Colour Blindness in Football project.</p>
+
           <div class="hero-actions">
             <a class="btn btn-primary" href="#upload">🆓 Claim a free logo space</a>
             <a class="btn" href="https://cornelius-aurelius.github.io/Sponsor-the-Hidden-Player/">🤝 Sponsor the project</a>
@@ -434,18 +799,22 @@
               <label for="business-name">Business name</label>
               <input id="business-name" name="business-name" placeholder="Example: Your Business" required />
             </div>
+
             <div class="field">
               <label for="business-link">Business website link</label>
               <input id="business-link" name="business-link" type="url" placeholder="https://example.com" required />
             </div>
+
             <div class="field">
               <label for="contact-email">Contact email</label>
               <input id="contact-email" name="contact-email" type="email" placeholder="you@example.com" required />
             </div>
+
             <div class="field">
               <label for="locked-subject">Submission type</label>
               <input id="locked-subject" value="THE 12000 PIXEL SITE - LOGO + LINK" readonly />
             </div>
+
             <div class="field">
               <label for="logo-upload">Upload logo</label>
               <input id="logo-upload" name="logo-upload" type="file" accept=".png,.jpg,.jpeg,.webp,.svg,image/png,image/jpeg,image/webp,image/svg+xml" required />
@@ -476,6 +845,7 @@
 
           <aside class="panel form-card">
             <h3>Your logo check</h3>
+
             <div class="upload-preview">
               <div class="preview-logo" id="logo-preview">LOGO<br>PREVIEW</div>
               <div>
@@ -484,13 +854,16 @@
                 <p class="note">If it looks clear here, it should display correctly inside the hidden 12.</p>
               </div>
             </div>
+
             <div class="status-list" id="logo-status">
               <div class="status-item warn">⚠️ Upload a logo to check format, size and preview.</div>
             </div>
+
             <div class="note-box">
               <strong>New automation:</strong><br />
               Submissions now go to your Google Sheet and Drive. Change <code>approved</code> from <code>NO</code> to <code>YES</code> to publish a supporter.
             </div>
+
             <div class="mini-board">
               <div class="test-board" data-board="mini" aria-label="Mini preview of the number 12 logo wall"></div>
             </div>
@@ -519,29 +892,16 @@
   <div class="toast" id="toast" role="status" aria-live="polite">Done</div>
 
   <script>
-    /**********************************************************************
-     * THE 12,000 PIXEL WEBSITE
-     * Static GitHub Pages version by Cornelius Aurelius.
-     *
-     * NEW AUTOMATION:
-     * - Submissions post to Google Apps Script.
-     * - Google Apps Script saves details to Google Sheets and logos to Drive.
-     * - Approved rows marked YES are loaded into the supporter wall.
-     *
-     * SETUP NEEDED:
-     * 1) Paste the code in google-apps-script-code.js into Apps Script.
-     * 2) Deploy it as a Web App.
-     * 3) Paste the Web App URL into GOOGLE_SCRIPT_URL below.
-     **********************************************************************/
-
     const OWNER_EMAIL = "corneliusaureliush@gmail.com";
     const EMAIL_SUBJECT = "THE 12000 PIXEL SITE - LOGO + LINK";
+
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwTUpxpgZ1a0oYdpG8z_6C0OlF9vLzIWkznqZ0WhX0mvnNNHFvWor3vJpcYy-NN5DFNSg/exec";
+
     const TOTAL_PIXELS = 12000;
-    const GOAL_LOGOS = 1000;
     const PIXELS_PER_LOGO = 12;
-    const DEMO_MODE = true;
+    const DEMO_MODE = false;
     const MAX_LOGO_BYTES = 5 * 1024 * 1024;
+
     let demoReveal = 1;
     let uploadedLogoData = "";
     let uploadedLogoMeta = null;
@@ -549,7 +909,6 @@
     let SHEET_SUPPORTERS = [];
 
     const SUPPORTERS = [
-      // Optional manual supporters. Sheet supporters load automatically.
       { name: "Cornelius Aurelius", url: "https://corneliusaurelius.com/", logo: "", pixels: 12 },
       { name: "Colour Blindness in Football", url: "https://cornelius-aurelius.github.io/colour-blindness-in-football-project/#mission", logo: "", pixels: 12 }
     ];
@@ -566,7 +925,13 @@
     }
 
     function initials(name) {
-      return (name || "Logo").split(/\s+/).filter(Boolean).slice(0, 2).map(x => x[0]).join("").toUpperCase();
+      return (name || "Logo")
+        .split(/\s+/)
+        .filter(Boolean)
+        .slice(0, 2)
+        .map(x => x[0])
+        .join("")
+        .toUpperCase();
     }
 
     function makeDemoLogo(name, i) {
@@ -583,14 +948,23 @@
 
     function getSponsors() {
       const live = [...SHEET_SUPPORTERS, ...SUPPORTERS];
+
       if (temporarySponsor) live.unshift(temporarySponsor);
       if (!DEMO_MODE) return live;
-      const demo = demoNames.map((name, i) => ({ name, url: "#upload", logo: makeDemoLogo(name, i), pixels: PIXELS_PER_LOGO }));
+
+      const demo = demoNames.map((name, i) => ({
+        name,
+        url: "#upload",
+        logo: makeDemoLogo(name, i),
+        pixels: PIXELS_PER_LOGO
+      }));
+
       return [...live, ...demo];
     }
 
     function getProgress(sponsors) {
       if (DEMO_MODE) return demoReveal;
+
       const revealed = sponsors.reduce((sum, s) => sum + (Number(s.pixels) || PIXELS_PER_LOGO), 0);
       return Math.max(0, Math.min(1, revealed / TOTAL_PIXELS));
     }
@@ -599,17 +973,22 @@
       const canvas = document.createElement("canvas");
       canvas.width = cols;
       canvas.height = rows;
+
       const ctx = canvas.getContext("2d");
       ctx.clearRect(0, 0, cols, rows);
       ctx.fillStyle = "#fff";
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
+
       let size = rows * .92;
+
       do {
         ctx.font = `900 ${size}px Arial Black, Impact, sans-serif`;
         size -= 1;
       } while (ctx.measureText("12").width > cols * .83 && size > 10);
+
       ctx.fillText("12", cols * .51, rows * .55);
+
       return ctx.getImageData(0, 0, cols, rows).data;
     }
 
@@ -631,15 +1010,25 @@
       for (let y = 0; y < rows; y++) {
         for (let x = 0; x < cols; x++) {
           const idx = (y * cols + x) * 4 + 3;
-          if (isInCircle(x, y, cols, rows) && mask[idx] > 20) numberCells.push(y * cols + x);
+          if (isInCircle(x, y, cols, rows) && mask[idx] > 20) {
+            numberCells.push(y * cols + x);
+          }
         }
       }
 
       const revealCount = Math.round(numberCells.length * progress);
       const revealMap = new Map();
-      numberCells.forEach((cellIndex, revealIndex) => revealMap.set(cellIndex, revealIndex));
 
-      board.innerHTML = `<div class="board-watermark">12</div><div class="board-grid" style="grid-template-columns: repeat(${cols}, 1fr); grid-template-rows: repeat(${rows}, 1fr);"></div><div class="board-caption">${type === "hero" ? "The full 12" : "Preview"} • ${formatNumber(TOTAL_PIXELS)} pixels</div>`;
+      numberCells.forEach((cellIndex, revealIndex) => {
+        revealMap.set(cellIndex, revealIndex);
+      });
+
+      board.innerHTML = `
+        <div class="board-watermark">12</div>
+        <div class="board-grid" style="grid-template-columns: repeat(${cols}, 1fr); grid-template-rows: repeat(${rows}, 1fr);"></div>
+        <div class="board-caption">${type === "hero" ? "The full 12" : "Preview"} • ${formatNumber(TOTAL_PIXELS)} pixels</div>
+      `;
+
       const grid = board.querySelector(".board-grid");
       const sponsorPool = sponsors.length ? sponsors : [{ name: "Your Logo", url: "#upload", logo: "", pixels: PIXELS_PER_LOGO }];
 
@@ -660,11 +1049,13 @@
 
           if (isNumber && revealIndex < revealCount) {
             const sponsor = sponsorPool[revealIndex % sponsorPool.length];
+
             dot.className = "pixel-dot pixel-logo";
             dot.href = sponsor.url || "#";
             dot.target = sponsor.url && sponsor.url !== "#upload" && sponsor.url !== "#" ? "_blank" : "";
             dot.rel = "noopener";
             dot.title = `${sponsor.name} — ${sponsor.pixels || PIXELS_PER_LOGO} awareness pixels`;
+
             if (sponsor.logo) {
               const img = document.createElement("img");
               img.src = sponsor.logo;
@@ -682,6 +1073,7 @@
             dot.style.background = palette[Math.floor(r * palette.length)];
             dot.style.setProperty("--s", (0.62 + seeded(cell + 101) * 0.52).toFixed(2));
           }
+
           grid.appendChild(dot);
         }
       }
@@ -690,24 +1082,31 @@
     function renderSponsorsList() {
       const list = document.getElementById("sponsor-list");
       if (!list) return;
+
       const sponsors = getSponsors().slice(0, 24);
       list.innerHTML = "";
+
       sponsors.forEach((s, i) => {
         const card = document.createElement("a");
         card.className = "sponsor-chip";
         card.href = s.url || "#upload";
         card.title = s.name;
+
         if (s.url && s.url !== "#" && s.url !== "#upload") {
           card.target = "_blank";
           card.rel = "noopener";
         }
+
         const img = document.createElement("img");
         img.src = s.logo || makeDemoLogo(s.name, i);
         img.alt = s.name;
+
         const strong = document.createElement("strong");
         strong.textContent = s.name;
+
         const span = document.createElement("span");
         span.textContent = `${s.pixels || PIXELS_PER_LOGO} pixels`;
+
         card.append(img, strong, span);
         list.appendChild(card);
       });
@@ -722,7 +1121,10 @@
       const toast = document.getElementById("toast");
       toast.textContent = message;
       toast.classList.add("show");
-      window.setTimeout(() => toast.classList.remove("show"), 2400);
+
+      window.setTimeout(() => {
+        toast.classList.remove("show");
+      }, 2400);
     }
 
     const logoInput = document.getElementById("logo-upload");
@@ -740,6 +1142,7 @@
       previewName.textContent = businessName.value || "Your Business";
       previewLink.textContent = businessLink.value || "https://example.com";
     }
+
     businessName.addEventListener("input", syncPreviewText);
     businessLink.addEventListener("input", syncPreviewText);
 
@@ -750,7 +1153,9 @@
     }
 
     function setLogoStatus(items) {
-      logoStatus.innerHTML = items.map(item => `<div class="status-item ${item.kind}">${item.icon} <span>${item.text}</span></div>`).join("");
+      logoStatus.innerHTML = items
+        .map(item => `<div class="status-item ${item.kind}">${item.icon} <span>${item.text}</span></div>`)
+        .join("");
     }
 
     function isAcceptedLogo(file) {
@@ -761,8 +1166,10 @@
 
     logoInput.addEventListener("change", () => {
       const file = logoInput.files && logoInput.files[0];
+
       uploadedLogoData = "";
       uploadedLogoMeta = null;
+
       if (!file) {
         logoPreview.innerHTML = "LOGO<br>PREVIEW";
         setLogoStatus([{ kind: "warn", icon: "⚠️", text: "Upload a logo to check format, size and preview." }]);
@@ -774,11 +1181,14 @@
       const validSize = file.size <= MAX_LOGO_BYTES;
 
       statusItems.push(validType
-        ? { kind: "ok", icon: "✅", text: `Format OK: ${file.type || file.name.split('.').pop().toUpperCase()}.` }
-        : { kind: "bad", icon: "❌", text: "Wrong format. Please upload PNG, JPG, WEBP or SVG." });
+        ? { kind: "ok", icon: "✅", text: `Format OK: ${file.type || file.name.split(".").pop().toUpperCase()}.` }
+        : { kind: "bad", icon: "❌", text: "Wrong format. Please upload PNG, JPG, WEBP or SVG." }
+      );
+
       statusItems.push(validSize
         ? { kind: "ok", icon: "✅", text: `Size OK: ${fileSizeLabel(file.size)}.` }
-        : { kind: "bad", icon: "❌", text: `File too large: ${fileSizeLabel(file.size)}. Maximum is 5MB.` });
+        : { kind: "bad", icon: "❌", text: `File too large: ${fileSizeLabel(file.size)}. Maximum is 5MB.` }
+      );
 
       if (!validType || !validSize) {
         logoPreview.innerHTML = "LOGO<br>ERROR";
@@ -787,12 +1197,19 @@
       }
 
       const reader = new FileReader();
+
       reader.onload = e => {
         uploadedLogoData = e.target.result;
         logoPreview.innerHTML = `<img src="${uploadedLogoData}" alt="Uploaded logo preview">`;
 
         if (file.type === "image/svg+xml" || /\.svg$/i.test(file.name)) {
-          uploadedLogoMeta = { name: file.name, type: file.type || "image/svg+xml", size: file.size, dimensions: "SVG/vector" };
+          uploadedLogoMeta = {
+            name: file.name,
+            type: file.type || "image/svg+xml",
+            size: file.size,
+            dimensions: "SVG/vector"
+          };
+
           statusItems.push({ kind: "ok", icon: "✅", text: "Preview loaded. SVG/vector logos usually work well." });
           statusItems.push({ kind: "warn", icon: "⚠️", text: "Before submitting, make sure the logo is clear and not cut off in the white preview box." });
           setLogoStatus(statusItems);
@@ -801,28 +1218,50 @@
         }
 
         const image = new Image();
+
         image.onload = () => {
           const ratio = image.width / image.height;
           const squareEnough = ratio > .75 && ratio < 1.35;
           const largeEnough = image.width >= 300 && image.height >= 300;
-          uploadedLogoMeta = { name: file.name, type: file.type, size: file.size, dimensions: `${image.width} × ${image.height}` };
+
+          uploadedLogoMeta = {
+            name: file.name,
+            type: file.type,
+            size: file.size,
+            dimensions: `${image.width} × ${image.height}`
+          };
+
           statusItems.push({ kind: "ok", icon: "✅", text: `Preview loaded: ${image.width} × ${image.height}px.` });
+
           statusItems.push(squareEnough
             ? { kind: "ok", icon: "✅", text: "Shape OK: close enough to square for the board." }
-            : { kind: "warn", icon: "⚠️", text: "Wide/tall logo detected. It will still fit, but a square version will look better." });
+            : { kind: "warn", icon: "⚠️", text: "Wide/tall logo detected. It will still fit, but a square version will look better." }
+          );
+
           statusItems.push(largeEnough
             ? { kind: "ok", icon: "✅", text: "Resolution OK for a small logo space." }
-            : { kind: "warn", icon: "⚠️", text: "Low resolution. Use a larger version if possible." });
+            : { kind: "warn", icon: "⚠️", text: "Low resolution. Use a larger version if possible." }
+          );
+
           setLogoStatus(statusItems);
           showToast("Logo checked");
         };
+
         image.onerror = () => {
-          uploadedLogoMeta = { name: file.name, type: file.type, size: file.size, dimensions: "Could not read dimensions" };
+          uploadedLogoMeta = {
+            name: file.name,
+            type: file.type,
+            size: file.size,
+            dimensions: "Could not read dimensions"
+          };
+
           statusItems.push({ kind: "warn", icon: "⚠️", text: "Preview loaded, but image dimensions could not be checked." });
           setLogoStatus(statusItems);
         };
+
         image.src = uploadedLogoData;
       };
+
       reader.readAsDataURL(file);
     });
 
@@ -836,15 +1275,39 @@
 
     function buildEmailBody() {
       const meta = uploadedLogoMeta || {};
-      return `Hi Cornelius,\n\nI would like to claim a free founding logo space on The 12,000 Pixel Website and help reveal the hidden 12.\n\nBusiness name: ${businessName.value}\nBusiness link: ${businessLink.value}\nContact email: ${contactEmail.value}\n\nLogo file to attach before sending:\nFile name: ${meta.name || "Not provided"}\nFile type: ${meta.type || "Not provided"}\nFile size: ${meta.size ? fileSizeLabel(meta.size) : "Not provided"}\nDimensions: ${meta.dimensions || "Not provided"}\n\nMessage:\n${message.value || "No extra message."}\n\nI understand submissions are reviewed before being added, to keep the wall suitable for the Colour Blindness in Football project.\n\nIMPORTANT: I will attach the logo file to this email before sending.\n\nThank you.`;
+
+      return `Hi Cornelius,
+
+I would like to claim a free founding logo space on The 12,000 Pixel Website and help reveal the hidden 12.
+
+Business name: ${businessName.value}
+Business link: ${businessLink.value}
+Contact email: ${contactEmail.value}
+
+Logo file to attach before sending:
+File name: ${meta.name || "Not provided"}
+File type: ${meta.type || "Not provided"}
+File size: ${meta.size ? fileSizeLabel(meta.size) : "Not provided"}
+Dimensions: ${meta.dimensions || "Not provided"}
+
+Message:
+${message.value || "No extra message."}
+
+I understand submissions are reviewed before being added, to keep the wall suitable for the Colour Blindness in Football project.
+
+IMPORTANT: I will attach the logo file to this email before sending.
+
+Thank you.`;
     }
 
     function openGmailCompose() {
       const error = validateSubmission();
+
       if (error) {
         showToast(error);
         return;
       }
+
       const params = new URLSearchParams({
         view: "cm",
         fs: "1",
@@ -852,6 +1315,7 @@
         su: EMAIL_SUBJECT,
         body: buildEmailBody()
       });
+
       window.open(`https://mail.google.com/mail/?${params.toString()}`, "_blank", "noopener");
       emailHelp.classList.add("show");
       showToast("Gmail opened — attach the logo before sending");
@@ -869,6 +1333,7 @@
       event.preventDefault();
 
       const error = validateSubmission();
+
       if (error) {
         showToast(error);
         return;
@@ -896,6 +1361,7 @@
       form.style.display = "none";
 
       const file = logoInput.files && logoInput.files[0];
+
       const base64 = uploadedLogoData.includes(",")
         ? uploadedLogoData.split(",")[1]
         : uploadedLogoData;
@@ -945,6 +1411,7 @@
       const script = document.createElement("script");
       script.id = "approved-supporters-loader";
       script.src = `${GOOGLE_SCRIPT_URL}?action=list&callback=${callbackName}&v=${Date.now()}`;
+
       script.onerror = () => {
         console.warn("Could not load approved supporters.");
         renderAll();
@@ -955,26 +1422,34 @@
 
     document.getElementById("preview-on-board").addEventListener("click", () => {
       const error = validateSubmission();
+
       if (error) {
         showToast(error);
         return;
       }
+
       temporarySponsor = {
         name: businessName.value || "Your Business",
         url: businessLink.value || "#upload",
         logo: uploadedLogoData || makeDemoLogo(businessName.value || "Your Business", 999),
         pixels: PIXELS_PER_LOGO
       };
+
       demoReveal = 1;
       renderAll();
       showToast("Logo preview added inside the 12");
-      document.getElementById("top").scrollIntoView({ behavior: "smooth", block: "start" });
+
+      document.getElementById("top").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
     });
 
     document.getElementById("sponsor-form").addEventListener("submit", submitToGoogleSheet);
     document.getElementById("gmail-compose").addEventListener("click", openGmailCompose);
 
     document.getElementById("year").textContent = new Date().getFullYear();
+
     loadApprovedSupporters();
   </script>
 </body>
